@@ -1,10 +1,11 @@
-import MeuBotao from '@/components/button' // "@/" é um atalho para "src/"
+import Button from "../components/Button"
+
 
 export default function Home() {
   return (
     <div>
       <h1> Olá mundo</h1>
-      <MeuBotao />
+      <Button />
     </div>
   );
 }
