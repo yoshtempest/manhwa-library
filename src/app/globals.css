@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
+/* ===== TEMA LIGHT (padrão) ===== */
 :root {
+  /* Cores Base */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  
+  /* Cores Adicionais (exemplo) */
+  /* --primary: #6D28D9;
+  --secondary: #DB2777;
+  --accent: #10B981; */
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
+/* ===== TEMA DARK ===== */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
-    --foreground: #FFFFFF;
+    --foreground: #ffffff;
+    
+    /* Ajuste cores para dark mode */
+    /* --primary: #8B5CF6;
+    --secondary: #EC4899;
+    --accent: #34D399; */
   }
 }
 
+/* ===== APLICAÇÃO NO BODY ===== */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== CLASSES REUTILIZÁVEIS ===== */
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
 }
