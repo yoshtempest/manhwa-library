@@ -1,11 +1,13 @@
 import styles from './styles.module.css'
 
 
-const Button = () => {
+const NavBar = () => {
     return (
-        <button className={styles.purple}> Hello World</button>
+        <div className='Container'>
+            <input></input>
+        </div>
     )
 }
 
 
-export default Button;
+export default NavBar;

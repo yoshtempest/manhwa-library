@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 /* ===== TEMA LIGHT (padrão) ===== */
-:root {
-  /* Cores Base */
+/* Light Mode (padrão) */
+:root, .light {
   --background: #ffffff;
   --foreground: #000000;
-  
-  /* Cores Adicionais (exemplo) */
-  /* --primary: #6D28D9;
-  --secondary: #DB2777;
-  --accent: #10B981; */
+  /* ... outras cores light ... */
 }
 
+/* Dark Mode (se classe 'dark' estiver ativa OU o sistema preferir dark) */
+
+
 /* ===== TEMA DARK ===== */
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light), .dark {
     --background: #000000;
     --foreground: #ffffff;
     
     /* Ajuste cores para dark mode */
-    /* --primary: #8B5CF6;
+    --primary: #8B5CF6;
     --secondary: #EC4899;
-    --accent: #34D399; */
+    --accent: #34D399; /* destaque */
   }
 }
 
