@@ -16,8 +16,8 @@
     height: 2vw;
     width: 80%;
     margin-left: 5%;
-    border-radius: 25px;
     border: 1.5px solid black;
+    border-radius: 25px;
 }
 
 .Input {
@@ -25,6 +25,10 @@
     padding-left: 2%;
     width: 100%;
     height: 100%;
-    color: black;
-    background-color: transparent; /* Fundo totalmente transparente */
+    color: var(--foreground); 
+    /* no tema claro escrevo escuro, no tema escuro eu escrevo claro*/
+}
+
+.IconContainer {
+    margin-left: 2%;
 }

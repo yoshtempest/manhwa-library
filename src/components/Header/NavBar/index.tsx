@@ -1,3 +1,4 @@
+import Icon from "../../Icon";
 import styles from './styles.module.css'
 import SearchIcon from '../../../../assets/SearchIcon.svg'
 
@@ -8,7 +9,12 @@ const NavBar = () => {
             <div className={styles.InputContainer}>
                 <input className={styles.Input}></input>
             </div>
-            <img></img>
+
+            <div className={styles.IconContainer}>
+                <Icon 
+                iconPath={SearchIcon.src}
+                alt="Search icon"/>
+            </div>
         </div>
     )
 }
