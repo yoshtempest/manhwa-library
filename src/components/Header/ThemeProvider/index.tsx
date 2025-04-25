@@ -22,8 +22,7 @@ export function ThemeProvider() {
   }, [theme]);
 
   return (
-    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-    aria-label={`Mudar para tema ${theme === "light" ? "dark" : "light"}`}>
+    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
       {theme === "light" ? (
           <Icon iconPath={LightTheme.src} alt="Icon of light theme" />
       ) : (

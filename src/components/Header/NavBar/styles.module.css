@@ -10,8 +10,7 @@
 }
 
 .InputContainer {
-    background-color: white;
-    opacity: 25%;
+    background-color: #61617F;
     height: 2vw;
     width: 80%;
     margin-left: 5%;
@@ -20,11 +19,12 @@
 }
 
 .Input {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     padding-left: 2%;
     width: 100%;
     height: 100%;
     color: var(--foreground); 
+    outline: none;
     /* no tema claro escrevo escuro, no tema escuro eu escrevo claro*/
 }
 
