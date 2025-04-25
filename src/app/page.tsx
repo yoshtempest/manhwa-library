@@ -1,11 +1,9 @@
-import NavBar from '@/components/Header/NavBar';
-import { ThemeProvider } from '@/components/Header/ThemeProvider';
+import Header from '../components/Header'
 
 export default function Home() {
   return (
     <div>
-      <NavBar />
-      <ThemeProvider />
+      <Header />
     </div>
   );
 }

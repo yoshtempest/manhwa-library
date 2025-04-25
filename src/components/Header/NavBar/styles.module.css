@@ -1,11 +1,10 @@
 .Container {
     width: 30vw;
-    height: 4vw;
+    height: 8vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    margin-top: 10%;
     background-color: #2C2C54;
     border-radius: 25px;
 }
