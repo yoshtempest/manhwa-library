@@ -28,6 +28,11 @@
     /* no tema claro escrevo escuro, no tema escuro eu escrevo claro*/
 }
 
+.Input::placeholder {
+    color: var(--foreground);
+    font-size: 1.2rem;
+}
+
 .IconContainer {
     margin-left: 2%;
 }

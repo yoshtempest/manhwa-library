@@ -7,7 +7,9 @@ const NavBar = () => {
     return (
         <div className={styles.Container}>
             <div className={styles.InputContainer}>
-                <input className={styles.Input}></input>
+                <input className={styles.Input}
+                placeholder="Digite aqui">
+                </input>
             </div>
 
             <div className={styles.IconContainer}>
