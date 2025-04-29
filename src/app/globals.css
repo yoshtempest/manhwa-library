@@ -2,7 +2,18 @@
 
 /* ===== VARIÁVEIS DE TEMA ===== */
 :root, .light {
-  --background: #ffffff;
+  --background: linear-gradient(
+    45deg,
+    #FFEE58 0%,
+    #9575CD 80%,
+    #FFFF00 100%,
+  ),
+  linear-gradient(
+    45deg,
+    #D9D9D9 0%,
+    #FFEE58 26%,
+    #FFEE58 100%,
+  );
   --foreground: #000000;
   --primary: #FFEE58;
 }
@@ -12,7 +23,7 @@
       45deg,
       #000000 0%,
       #2E0854 75%,
-      #FFD54F 100%
+      #FFD54F 90%
     ),
     linear-gradient(
       -45deg,

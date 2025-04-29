@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "../components/Header/ThemeProvider"
 import "./globals.css";
-import { ThemeProvider } from "../components/Header/ThemeProvider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Manhwa Library",
-  description: "A library for manhwas: descriptions and notes",
+  description: "A library for descriptions and notes of manhwas",
 };
 
 
@@ -31,7 +32,9 @@ export default function RootLayout({
       suppressHydrationWarning // ⚠️ Suprime avisos de hydration (explicado abaixo)
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ThemeProvider>
           {children}
+        </ThemeProvider>
       </body>
     </html>
   );
