@@ -1,0 +1,8 @@
+.BurgerIcon {
+    display: flex;
+    position: inline-block;
+}
+
+.BurgerContent {
+    display: none;
+}

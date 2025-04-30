@@ -20,8 +20,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Sempre que o tema mudar: atualiza HTML e localStorage
   useEffect(() => {
-    // Aplica a classe no elemento <html>
-    document.documentElement.className = theme;
+    // Primeiro remove todas as classes de tema
+    document.documentElement.classList.remove("light", "dark");
+    
+    // Depois adiciona a classe do tema atual
+    document.documentElement.classList.add(theme);
+    
     // Salva preferência
     localStorage.setItem("theme", theme);
   }, [theme]);

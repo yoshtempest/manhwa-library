@@ -1,14 +1,25 @@
 import styles from './styles.module.css';
 import Icon from '../../Icon';
 import BurgerDark from '../../../../assets/BurgerDark.svg';
+import HomeDark from '../../../../assets/HomeDark.svg';
 
 
 const Burger = () => {
     return(
         <div className={styles.Container}>
-            <Icon 
-            iconPath={BurgerDark.src}
-            alt="Burger"/>
+            <div className={styles.BurgerIcon}>
+                <Icon 
+                iconPath={BurgerDark.src}
+                alt="Burger"/>
+            </div>
+
+            <div>
+                <div className={styles.BurgerContent}>
+                    <Icon
+                    iconPath={HomeDark.src}
+                    alt="Home"/>
+                </div>
+            </div>
         </div>
     )
 }

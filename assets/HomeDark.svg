@@ -1,0 +1,9 @@
+<svg width="109" height="120" viewBox="0 0 109 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="79" y="12" width="7" height="13" fill="white"/>
+<rect x="52" y="7" width="10" height="5" fill="white"/>
+<path d="M15.625 50.25L56.5 20.5L97.375 50.25V97C97.375 99.2543 96.418 101.416 94.7145 103.01C93.0111 104.604 90.7007 105.5 88.2917 105.5H24.7083C22.2993 105.5 19.9889 104.604 18.2854 103.01C16.582 101.416 15.625 99.2543 15.625 97V50.25Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.625 50.25L56.5 20.5L97.375 50.25V97C97.375 99.2543 96.418 101.416 94.7145 103.01C93.0111 104.604 90.7007 105.5 88.2917 105.5H24.7083C22.2993 105.5 19.9889 104.604 18.2854 103.01C16.582 101.416 15.625 99.2543 15.625 97V50.25Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42.875 105.5V63H70.125V105.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="12.5563" y1="37.8323" x2="53.3771" y2="8.95902" stroke="white" stroke-width="5"/>
+<line y1="-2.5" x2="50" y2="-2.5" transform="matrix(-0.816416 -0.577465 -0.577465 0.816416 99.8208 39.8733)" stroke="white" stroke-width="5"/>
+</svg>
