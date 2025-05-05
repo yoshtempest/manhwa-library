@@ -18,6 +18,7 @@ const Burger = () => {
                     <Icon
                     iconPath={HomeDark.src}
                     alt="Home"/>
+                    <p> Home </p>
                 </div>
             </div>
         </div>
