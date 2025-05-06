@@ -23,7 +23,7 @@
       45deg,
       #000000 0%,
       #2E0854 75%,
-      #FFD54F 90%
+      #FFD54F 100%
     ),
     linear-gradient(
       -45deg,
@@ -39,7 +39,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  background-blend-mode: overlay;
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;

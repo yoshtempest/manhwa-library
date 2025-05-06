@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html 
       lang="en-us" 
-      suppressHydrationWarning // ⚠️ Suprime avisos de hydration (explicado abaixo)
+      suppressHydrationWarning // ⚠️ Suprime avisos de hydration
       className="light" // classe padrão
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
