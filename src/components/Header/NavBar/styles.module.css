@@ -5,16 +5,24 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    background-color: #2C2C54;
+    box-shadow: 
+    0 2px 10px rgba(46, 8, 84, 1), /* Sombra roxa (--primary com opacidade) */
+    0 4px 6px -1px rgba(0, 0, 0, 1), /* Sombra escura para profundidade */
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1); /* Linha sutil no inferior (efeito "border" elegante) */
+    /* background-color: #2C2C54; */
+    border: 0.2px solid #2C2C54;
     border-radius: 25px;
 }
 
 .InputContainer {
-    background-color: #61617F;
+    /* background-color: #61617F; */
     height: 2vw;
     width: 80%;
     margin-left: 5%;
-    border: 1.5px solid black;
+    box-shadow: 
+    0 2px 10px rgba(46, 8, 84, 1),
+    0 4px 6px -1px rgba(0, 0, 0, 1);
+    border: 1px solid #61617F;
     border-radius: 25px;
 }
 

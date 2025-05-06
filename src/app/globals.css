@@ -4,9 +4,9 @@
 :root, .light {
   --background: linear-gradient(
     45deg,
-    #FFEE58 0%,
-    #9575CD 80%,
-    #FFFF00 100%,
+    rgba(255, 238, 88, 0.3) 0%,
+    rgba(149, 117, 205, 0.3) 80%,
+    rgba(255, 255, 0, 0.3) 100%
   ),
   linear-gradient(
     45deg,
@@ -21,9 +21,9 @@
 .dark {
   --background: linear-gradient(
       45deg,
-      #000000 0%,
-      #2E0854 75%,
-      #FFD54F 100%
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(46, 8, 84, 0.2) 75%,
+      rgba(255, 213, 79, 0.3) 100%
     ),
     linear-gradient(
       -45deg,
@@ -31,7 +31,7 @@
       #1A1A2E 50%,
       #000033 100%
     );
-  --foreground: #ffffff;
+  --foreground: #f5f5f5;
   --primary: #2E0854;
 }
 

@@ -19,6 +19,8 @@ const Burger = () => {
                     iconPath={HomeDark.src}
                     alt="Home"/>
                     <p> Home </p>
+
+                    <a> Gêneros📚</a>
                 </div>
             </div>
         </div>

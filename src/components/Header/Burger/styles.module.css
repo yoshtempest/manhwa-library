@@ -5,4 +5,5 @@
 
 .BurgerContent {
     display: none;
+    flex-direction: column;
 }
