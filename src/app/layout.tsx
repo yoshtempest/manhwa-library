@@ -33,9 +33,9 @@ export default function RootLayout({
       className="light" // classe padrão
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
       </body>
     </html>
   );

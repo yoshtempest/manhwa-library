@@ -33,15 +33,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* Botão Toggle */}
-      <button
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        aria-label={`${theme === "dark" ? "light" : "dark"}`}
-      >
-        <Icon 
-          iconPath={theme === "dark" ? DarkTheme.src : LightTheme.src} 
-          alt={`Theme Icon ${theme === "dark" ? "light" : "dark"}`} 
-        />
-      </button>
+      <div className={styles.themeToggle}>
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          aria-label={`${theme === "dark" ? "light" : "dark"}`}
+        >
+          <Icon 
+            iconPath={theme === "dark" ? DarkTheme.src : LightTheme.src} 
+            alt={`Theme Icon ${theme === "dark" ? "light" : "dark"}`} 
+          />
+        </button>
+      </div>
+
       
       {/* Content of aplication */}
       {children}
