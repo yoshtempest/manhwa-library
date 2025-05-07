@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
-import Icon from "../../Icon";
-import SearchIcon from '../../../../assets/SearchIcon.svg'
+import Icon from "@/components/Icon";
+import SearchIcon from '@/assets/SearchIcon.svg'
 
 
 const NavBar = () => {

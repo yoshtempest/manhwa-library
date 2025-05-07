@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
-import Icon from '../../Icon';
-import BurgerDark from '../../../../assets/BurgerDark.svg';
-import HomeDark from '../../../../assets/HomeDark.svg';
+import BurgerDark from '@/assets/BurgerDark.svg';
+import HomeDark from '@/assets/HomeDark.svg';
+import Icon from '@/components/Icon';
 
 
 const Burger = () => {
@@ -20,7 +20,9 @@ const Burger = () => {
                     alt="Home"/>
                     <p> Home </p>
 
-                    <a> Gêneros📚</a>
+                    <a> Genres📚</a>
+
+                    <a> Trending Now📈</a>
                 </div>
             </div>
         </div>

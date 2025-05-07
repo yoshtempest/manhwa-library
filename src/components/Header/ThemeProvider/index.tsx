@@ -1,9 +1,9 @@
 "use client";
 
-import Icon from "../../Icon";
 import styles from './styles.module.css'
-import LightTheme from '../../../../assets/LightTheme.svg'
-import DarkTheme from '../../../../assets/DarkTheme.svg'
+import DarkTheme from '@/assets/DarkTheme.svg'
+import Icon from "@/components/Icon";
+import LightTheme from '@/assets/LightTheme.svg'
 
 import { useEffect, useState } from "react";
 
