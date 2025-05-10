@@ -1,12 +1,22 @@
 .Container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
     width: 100vw;
     height: 18vh;
     box-shadow: 
-    0 2px 10px rgba(46, 8, 84, 1), /* Sombra roxa (--primary com opacidade) */
-    0 4px 6px -1px rgba(0, 0, 0, 1), /* Sombra escura para profundidade */
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1); /* Linha sutil no inferior (efeito "border" elegante) */
+        0 2px 10px rgba(46, 8, 84, 1),
+        0 4px 6px -1px rgba(0, 0, 0, 1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.BurgerContainer {
+    position: absolute;
+    left: 20px; /* Distância da borda esquerda */
+    z-index: 10; /* Garante que fique acima de outros elementos se necessário */
+}
+
+.NavBarContainer {
+    margin: 0 auto; /* Centraliza a NavBar */
+    width: fit-content; /* Ajusta ao conteúdo */
 }

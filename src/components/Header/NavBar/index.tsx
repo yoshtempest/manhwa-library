@@ -6,7 +6,7 @@ import SearchIconWhite from '@/assets/SearchIconWhite.svg'
 const NavBar = () => {
     return (
         <div className={styles.Container}>
-            <div className={styles.InputWrapper}>
+            <div className={styles.InputContainer}>
                 <input 
                     className={styles.Input}
                     placeholder="Digite aqui"
