@@ -1,3 +1,10 @@
+.Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .BurgerIcon {
     display: flex;
     position: inline-block;
@@ -6,11 +13,14 @@
 .BurgerContent {
     display: flex;
     flex-direction: column;
+    top: 100%;
+    position: absolute;
 }
 
 .NavItem {
     display: flex;
     align-items: center;
+    text-align: center;
     gap: 10px;
     padding: 12px 16px;
     color: var(--foreground);
