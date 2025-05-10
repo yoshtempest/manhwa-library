@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import BurgerDark from '@/assets/BurgerDark.svg';
-import HomeDark from '@/assets/HomeDark.svg';
 import Icon from '@/components/Icon';
+import Link from 'next/link'; // Importação correta para navegação
 
 
 const Burger = () => {
@@ -15,14 +15,17 @@ const Burger = () => {
 
             <div>
                 <div className={styles.BurgerContent}>
-                    <Icon
-                    iconPath={HomeDark.src}
-                    alt="Home"/>
-                    <p> Home </p>
+                    <Link href="/" className={styles.NavItem}>
+                        <span>Home🏠</span>
+                    </Link>
 
-                    <a> Genres📚</a>
+                    <Link href="/genres" className={styles.NavItem}>
+                        <span>Genres📚</span>
+                    </Link>
 
-                    <a> Trending Now📈</a>
+                    <Link href="/trending" className={styles.NavItem}>
+                        <span>Trending Now📈</span>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -4,6 +4,21 @@
 }
 
 .BurgerContent {
-    display: none;
+    display: flex;
     flex-direction: column;
+}
+
+.NavItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.NavItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
