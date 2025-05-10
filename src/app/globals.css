@@ -11,11 +11,11 @@
   linear-gradient(
     45deg,
     #D9D9D9 0%,
-    #FFEE58 26%,
-    #FFEE58 100%,
+    #FFF9C4 26%,
+    #FFF9C4 100%
   );
   --foreground: #000000;
-  --primary: #FFEE58;
+  --primary: #FFF9C4;
 }
 
 .dark {
