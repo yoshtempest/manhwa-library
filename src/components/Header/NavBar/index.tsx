@@ -1,6 +1,7 @@
 import styles from './styles.module.css'
 import Icon from "@/components/Icon";
 import SearchIcon from '@/assets/SearchIcon.svg'
+import SearchIconWhite from '@/assets/SearchIconWhite.svg'
 
 
 const NavBar = () => {
@@ -14,7 +15,7 @@ const NavBar = () => {
 
             <div className={styles.IconContainer}>
                 <Icon 
-                iconPath={SearchIcon.src}
+                iconPath={SearchIconWhite.src}
                 alt="Search icon"/>
             </div>
         </div>
