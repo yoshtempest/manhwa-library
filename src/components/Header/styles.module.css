@@ -1,5 +1,6 @@
 .Container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     width: 100vw;
     height: 18vh;
@@ -7,16 +8,14 @@
         0 2px 10px rgba(46, 8, 84, 1),
         0 4px 6px -1px rgba(0, 0, 0, 1),
         inset 0 -1px 0 rgba(255, 255, 255, 0.1);
-    position: relative;
 }
 
 .BurgerContainer {
-    position: absolute;
-    left: 20px; /* Distância da borda esquerda */
-    z-index: 10; /* Garante que fique acima de outros elementos se necessário */
+    grid-column: 1;
+    padding-left: 20px;
 }
 
 .NavBarContainer {
-    margin: 0 auto; /* Centraliza a NavBar */
-    width: fit-content; /* Ajusta ao conteúdo */
+    grid-column: 2;
+    margin: 0 auto;
 }
