@@ -23,12 +23,16 @@
     text-align: center;
     gap: 10px;
     padding: 12px 16px;
+    box-shadow: 
+        0 2px 10px rgba(46, 8, 84, 0.1),
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
     color: var(--foreground);
     text-decoration: none;
     transition: background-color 0.2s;
 }
 
 .NavItem:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
 }
