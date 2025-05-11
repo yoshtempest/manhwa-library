@@ -3,16 +3,11 @@
 /* ===== VARIÁVEIS DE TEMA ===== */
 :root, .light {
   --background: linear-gradient(
-    45deg,
-    /* rgba(255, 238, 88, 0.2) 0%, */
-    rgba(149, 117, 205, 0.2) 80%,
-    rgba(255, 255, 0, 0.5) 100%
-  ), 
-  linear-gradient(
-    45deg,
-    /* #D9D9D9 0%, */
-    /* #FFF9C4 26%, */
-    #FFF9C4 100%
+      to bottom left,
+      #FFD700 0%,
+      /* #FF6347 12%, */
+      #FF8C00 30%, /* 20% antes */
+      #FF4500 100%
   );
   --foreground: #333333;
   --primary: #FFF9C4;
