@@ -4,10 +4,11 @@
 :root, .light {
   --background: linear-gradient(
       to bottom left,
-      #FFD700 0%,
-      /* #FF6347 12%, */
-      #FF8C00 30%, /* 20% antes */
-      #FF4500 100%
+      #fbff00 0%,
+      white 20%,
+      #f9f9f9 50%,
+      #f3f3f3 90%,
+      #d9d9d9 100%
   );
   --foreground: #333333;
   --primary: #FFF9C4;
