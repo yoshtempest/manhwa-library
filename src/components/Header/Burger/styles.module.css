@@ -30,9 +30,11 @@
     color: var(--foreground);
     text-decoration: none;
     transition: background-color 0.2s;
+    font-size: clamp(0.9rem, 1rem, 1.3rem); /* Texto responsivo */
 }
 
 .NavItem:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
+    transform: translateY(-2px); /* Efeito de "levitação" */
 }
