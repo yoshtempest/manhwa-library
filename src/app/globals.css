@@ -5,10 +5,7 @@
   --background: linear-gradient(
       to bottom left,
       #fbff00 0%,
-      white 20%,
-      #f9f9f9 50%,
-      #f3f3f3 90%,
-      #d9d9d9 100%
+      white 20%
   );
   --foreground: #333333;
   --primary: #FFF9C4;
