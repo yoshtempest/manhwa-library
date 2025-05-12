@@ -4,8 +4,16 @@ import styles from './styles.module.css'
 import DarkTheme from '@/assets/DarkTheme.svg'
 import Icon from "@/components/Icon";
 import LightTheme from '@/assets/LightTheme.svg'
+import { useEffect, useState, createContext, useContext } from "react";
 
-import { useEffect, useState } from "react";
+// Crie o contexto
+export const ThemeContext = createContext<{
+  theme: "light" | "dark";
+  toggleTheme: () => void;
+}>({
+  theme: "light",
+  toggleTheme: () => {},
+});
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -20,22 +28,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Sempre que o tema mudar: atualiza HTML e localStorage
   useEffect(() => {
-    // Primeiro remove todas as classes de tema
     document.documentElement.classList.remove("light", "dark");
-    
-    // Depois adiciona a classe do tema atual
     document.documentElement.classList.add(theme);
-    
-    // Salva preferência
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
-    <>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {/* Botão Toggle */}
       <div className={styles.themeToggle}>
         <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={toggleTheme}
           aria-label={`${theme === "dark" ? "light" : "dark"}`}
         >
           <Icon 
@@ -45,9 +52,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         </button>
       </div>
 
-      
       {/* Content of aplication */}
       {children}
-    </>
+    </ThemeContext.Provider>
   );
 }
+
+// Hook personalizado para usar o tema
+export const useTheme = () => useContext(ThemeContext);

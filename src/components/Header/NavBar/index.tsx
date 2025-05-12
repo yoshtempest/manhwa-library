@@ -1,9 +1,14 @@
+"use client";
+
 import styles from './styles.module.css'
 import Icon from "@/components/Icon";
 import SearchIcon from '@/assets/SearchIcon.svg'
 import SearchIconWhite from '@/assets/SearchIconWhite.svg'
+import { useTheme } from "@/components/ThemeProvider";
 
 const NavBar = () => {
+    const { theme } = useTheme();
+    
     return (
         <div className={styles.Container}>
             <div className={styles.InputContainer}>
@@ -13,7 +18,7 @@ const NavBar = () => {
                 />
                 <div className={styles.SearchIcon}>
                     <Icon 
-                        iconPath={SearchIconWhite.src}
+                        iconPath={theme === "dark" ? SearchIconWhite.src : SearchIcon.src}
                         alt="Search icon"
                     />
                 </div>
