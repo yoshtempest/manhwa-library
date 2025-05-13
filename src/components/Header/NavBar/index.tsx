@@ -2,8 +2,8 @@
 
 import styles from './styles.module.css'
 import Icon from "@/components/Icon";
-import SearchIcon from '@/assets/SearchIcon.svg'
-import SearchIconWhite from '@/assets/SearchIconWhite.svg'
+import SearchIcon from '@/assets/icons/SearchIcon.svg'
+import SearchIconWhite from '@/assets/icons/SearchIconWhite.svg'
 import { useTheme } from "@/components/ThemeProvider";
 
 const NavBar = () => {

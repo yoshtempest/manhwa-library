@@ -2,7 +2,8 @@
 
 import { useState, useRef } from 'react';
 import styles from './styles.module.css';
-import BurgerDark from '@/assets/BurgerDark.svg';
+import BurgerDarkOpen from '@/assets/icons/BurgerDarkOpen.svg';
+import BurgerDarkClose from '@/assets/icons/BurgerDarkClose.svg'
 import Icon from '@/components/Icon';
 import Link from 'next/link';
 
@@ -21,7 +22,7 @@ const Burger = () => {
                 onClick={toggleMenu}
             >
                 <Icon 
-                    iconPath={BurgerDark.src}
+                    iconPath={isMenuOpen ? BurgerDarkClose.src : BurgerDarkOpen.src}
                     alt={isMenuOpen ? "Close menu" : "Open menu"}
                 />
             </div>

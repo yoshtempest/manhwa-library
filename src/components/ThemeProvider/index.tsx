@@ -1,9 +1,9 @@
 "use client";
 
 import styles from './styles.module.css'
-import DarkTheme from '@/assets/DarkTheme.svg'
+import DarkTheme from '@/assets/icons/DarkTheme.svg'
 import Icon from "@/components/Icon";
-import LightTheme from '@/assets/LightTheme.svg'
+import LightTheme from '@/assets/icons/LightTheme.svg'
 import { useEffect, useState, createContext, useContext } from "react";
 
 // Crie o contexto
