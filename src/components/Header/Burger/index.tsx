@@ -40,6 +40,10 @@ const Burger = () => {
                     <Link href="/trending" className={styles.NavItem}>
                         <span>Trending Now📈</span>
                     </Link>
+
+                    <Link href="/favorites" className={styles.NavItem}>
+                        <span> Your Favorites💖</span>
+                    </Link>
                 </div>
             )}
         </div>
