@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "better-sqlite3": "^11.10.0",
     "lightningcss": "1.25.0",
     "next": "^15.3.0",
     "react": "^19.1.0",
