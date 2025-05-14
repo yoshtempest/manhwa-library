@@ -38,11 +38,11 @@ const Burger = () => {
                     </Link>
 
                     <Link href="/trending" className={styles.NavItem}>
-                        <span>Trending Now📈</span>
+                        <span>Trending📈</span>
                     </Link>
 
                     <Link href="/favorites" className={styles.NavItem}>
-                        <span> Your Favorites💖</span>
+                        <span>Favorites💖</span>
                     </Link>
                 </div>
             )}
