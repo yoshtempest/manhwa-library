@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider"
+import Header from "@/components/Header";
 import "./globals.css";
 
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       className="light" // classe padrão
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <Header />
           <ThemeProvider>
             {children}
           </ThemeProvider>
