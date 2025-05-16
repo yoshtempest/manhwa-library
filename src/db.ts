@@ -1,21 +1,31 @@
-import Database from 'better-sqlite3';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
 
+// Abre a conexão com o banco de dados
+async function openDb() {
+  return open({
+    filename: './src/manhwas.db', // Caminho do arquivo
+    driver: sqlite3.Database
+  });
+}
 
-// Abre a caixinha (cria o arquivo do banco de dados)
-const db = new Database('manhwas.db'); 
+// Cria a tabela (se não existir)
+async function setupDatabase() {
+  const db = await openDb();
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS manhwas (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      genres TEXT NOT NULL,
+      description TEXT,
+      note REAL NOT NULL DEFAULT 0,
+      author TEXT,
+      image_path TEXT
+    )
+  `);
+  await db.close();
+}
 
-// Vamos criar uma tabela chamada "manhwas" (como uma planilha de desenhos!)
-db.exec(`
-  CREATE TABLE IF NOT EXISTS manhwas (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    genres TEXT NOT NULL,
-    description TEXT,
-    note REAL,
-    author TEXT,
-    imageUrl TEXT
-  )
-`);
+setupDatabase(); // Executa quando o arquivo é carregado
 
-
-export default db;
+export default openDb;

@@ -1,21 +1,17 @@
-import db from '../../db';
+import openDb from '../../db';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { title, genres, description, note, author, imageUrl } = req.body;
-    
-    // Insere o manhwa na tabela
-    const stmt = db.prepare(`
-      INSERT INTO manhwas (title, author, chapters, isFinished, imageUrl)
-      VALUES (?, ?, ?, ?, ?)
-    `);
-    
-    stmt.run(title, genres, description, note, author, imageUrl);
-    
-    res.status(200).json({ message: 'Manhwa adicionado com sucesso!' });
+    const db = await openDb();
+    const { title, author, chapters, isFinished, imageUrl } = req.body;
+
+  await db.run(
+    'INSERT INTO manhwas (title, genres, description, note, author, image_path) VALUES (?, ?, ?, ?, ?, ?)',
+  );
+
+    res.status(200).json({ message: 'Manhwa adicionado!' });
   } else {
-    res.status(405).json({ message: 'Só aceitamos POST aqui!' });
+    res.status(405).json({ message: 'Método não permitido!' });
   }
 }
