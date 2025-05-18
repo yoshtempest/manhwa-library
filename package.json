@@ -1,4 +1,11 @@
 {
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "files": true,
+    "transpileOnly": true,
+    "project": "tsconfig.ts-node.json"
+  },
   "name": "manhwa-library",
   "version": "0.1.0",
   "private": true,
