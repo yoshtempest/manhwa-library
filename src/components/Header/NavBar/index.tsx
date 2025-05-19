@@ -6,6 +6,7 @@ import SearchIcon from '@/assets/icons/SearchIcon.svg'
 import SearchIconWhite from '@/assets/icons/SearchIconWhite.svg'
 import { useTheme } from "@/components/ThemeProvider";
 
+
 const NavBar = () => {
     const { theme } = useTheme();
     
