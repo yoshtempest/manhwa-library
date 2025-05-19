@@ -8,6 +8,7 @@ import Icon from '@/components/Icon';
 import Link from 'next/link';
 
 const Burger = () => {
+    // Estado para controlar a abertura e fechamento do menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
 
