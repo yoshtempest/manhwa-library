@@ -47,6 +47,11 @@ html, body {
 }
 
 body {
+  background: var(--background);
+  color: var(--foreground);
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
   line-height: 1; /* Remove espaçamento extra entre linhas */
 }
 
@@ -70,21 +75,4 @@ q::before, q::after {
 table {
   border-collapse: collapse; /* Remove espaçamento entre células */
   border-spacing: 0;
-}
-
-/* ===== APLICAÇÃO NO BODY ===== */
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 100vh;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: background 0.5 ease, color 0.3s ease;
 }
