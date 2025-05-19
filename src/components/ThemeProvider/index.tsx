@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Indica que é um componente do lado do cliente (Next.js)
 
 import styles from './styles.module.css'
 import DarkTheme from '@/assets/icons/DarkTheme.svg'
@@ -6,15 +6,17 @@ import Icon from "@/components/Icon";
 import LightTheme from '@/assets/icons/LightTheme.svg'
 import { useEffect, useState, createContext, useContext } from "react";
 
-// Crie o contexto
+
 export const ThemeContext = createContext<{
   theme: "light" | "dark";
   toggleTheme: () => void;
 }>({
+  // Valores padrões: light ou vazio
   theme: "light",
   toggleTheme: () => {},
 });
 
+// É o componente que vai envolver a aplicação para fornecer o tema
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
@@ -23,7 +25,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const storedTheme = localStorage.getItem("theme") as "light" | "dark";
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
-    setTheme(storedTheme || (systemPrefersDark ? "dark" : "light"));
+    // Se o usuário já escolheu um tema, usa o dele. Caso contrário, usa o do sistema
+    setTheme(storedTheme || (systemPrefersDark ? "light" : "dark"));
   }, []);
 
   // Sempre que o tema mudar: atualiza HTML e localStorage
@@ -34,12 +37,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme]);
 
   const toggleTheme = () => {
+    // Inverte o tema atual (dark - light)
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {/* Botão Toggle */}
       <div className={styles.themeToggle}>
         <button
           onClick={toggleTheme}
@@ -51,12 +54,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
           />
         </button>
       </div>
-
-      {/* Content of aplication */}
+      {/* Renderiza o conteúdo da aplicação */}
       {children}
     </ThemeContext.Provider>
   );
 }
 
-// Hook personalizado para usar o tema
+
+// Permite que qualquer componente acesse o tema e a função toggleTheme
 export const useTheme = () => useContext(ThemeContext);
