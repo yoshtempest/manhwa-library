@@ -20,8 +20,6 @@ export const metadata: Metadata = {
   description: "A library for descriptions and notes of manhwas",
 };
 
-
-
 export default function RootLayout({
   children,
 }: {
@@ -31,7 +29,6 @@ export default function RootLayout({
     <html 
       lang="en-us" 
       suppressHydrationWarning // ⚠️ Suprime avisos de hydration
-      className="light" // classe padrão
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
           <Header />
