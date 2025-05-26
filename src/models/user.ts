@@ -11,7 +11,8 @@ class UserModel {
     public active: boolean,
     public createdAt: Date,
     public updatedAt: Date
-  ) {
+  )
+  {
     // Inicializa os atributos do usuário.
     this.id = id;
     this.username = username;
@@ -24,10 +25,25 @@ class UserModel {
     // Método para adicionar um novo usuário ao banco de dados.
     // Retorna uma instância de UserModel com o ID gerado.
     async add(dbSession: SqliteDatabase): Promise<UserModel> {
-
         const result = await dbSession.run(
-            `INSERT INTO users (username, email, password, active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`,
-            [this.username, this.email, this.password, this.active, this.createdAt.toISOString(), this.updatedAt.toISOString()]
+            `INSERT INTO users
+            (
+                username,
+                email,
+                password,
+                active,
+                created_at,
+                updated_at
+            )
+            VALUES (?, ?, ?, ?, ?, ?)`,
+            [
+                this.username,
+                this.email,
+                this.password,
+                this.active,
+                this.createdAt.toISOString(),
+                this.updatedAt.toISOString()
+            ]
         );
         const userId = result.lastID;
         if (typeof userId !== "number") {
@@ -46,8 +62,21 @@ class UserModel {
     // Atualiza os dados do usuário no banco de dados.
     async update(dbSession: SqliteDatabase): Promise<void> {
         await dbSession.run(
-            `UPDATE users SET username = ?, email = ?, password = ?, active = ?, updated_at = ? WHERE id = ?`,
-            [this.username, this.email, this.password, this.active, this.updatedAt.toISOString(), this.id]
+            `
+                UPDATE users SET username = ?,
+                email = ?,
+                password = ?,
+                active = ?,
+                updated_at = ? WHERE id = ?
+            `,
+            [
+                this.username,
+                this.email,
+                this.password,
+                this.active,
+                this.updatedAt.toISOString(),
+                this.id
+            ]
         );
     }
     // Remove o usuário do banco de dados.
@@ -110,27 +139,27 @@ class UserModel {
     // Converte a instância do usuário em um objeto JSON.
     toJson(): any {
         return {
-        id: this.id,
-        username: this.username,
-        email: this.email,
-        password: this.password,
-        active: this.active,
-        createdAt: this.createdAt.toISOString(),
-        updatedAt: this.updatedAt.toISOString(),
+            id: this.id,
+            username: this.username,
+            email: this.email,
+            password: this.password,
+            active: this.active,
+            createdAt: this.createdAt.toISOString(),
+            updatedAt: this.updatedAt.toISOString(),
         };
     }
     // Cria uma instância de UserModel a partir de um objeto JSON.
     static fromJson(json: any): UserModel {
-    return new UserModel(
-        json.id,
-        json.username,
-        json.email,
-        json.password,
-        json.active,
-        new Date(json.createdAt),
-        new Date(json.updatedAt)
-    );
-  }
+        return new UserModel(
+            json.id,
+            json.username,
+            json.email,
+            json.password,
+            json.active,
+            new Date(json.createdAt),
+            new Date(json.updatedAt)
+        );
+    }
 }
 
 
