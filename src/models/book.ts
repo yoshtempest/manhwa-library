@@ -1,7 +1,7 @@
 import { SqliteDatabase } from "@/core/db";
 
 
-class ManhwaModel {
+class BookModel {
     constructor(
         public id: number = 0,
         public title: string,
@@ -12,10 +12,10 @@ class ManhwaModel {
         public updatedAt: Date
     ) {}
 
-    // Adiciona um novo manhwa ao banco de dados.
-    async add(dbSession: SqliteDatabase): Promise<ManhwaModel> {
+    // Adiciona um novo book ao banco de dados.
+    async add(dbSession: SqliteDatabase): Promise<BookModel> {
         const result = await dbSession.run(
-            `INSERT INTO manhwa
+            `INSERT INTO book
             (
                 title,
                 author,
@@ -34,12 +34,12 @@ class ManhwaModel {
                 this.updatedAt.toISOString()
             ]
         );
-        const manhwaId = result.lastID;
-        if (typeof manhwaId !== "number") {
+        const bookId = result.lastID;
+        if (typeof bookId !== "number") {
             throw new Error("Failed to retrieve the last inserted ID.");
         }
-        return new ManhwaModel(
-            manhwaId,
+        return new BookModel(
+            bookId,
             this.title,
             this.author,
             this.description,
@@ -49,11 +49,11 @@ class ManhwaModel {
         );
     }
 
-    // Atualiza um manhwa existente.
+    // Atualiza um book existente.
     async update(dbSession: SqliteDatabase): Promise<void> {
         await dbSession.run(
             `
-                UPDATE manhwas SET title = ?,
+                UPDATE books SET title = ?,
                 author = ?,
                 description = ?,
                 genreID = ?,
@@ -71,30 +71,30 @@ class ManhwaModel {
         );
     }
 
-    // Atualiza os dados do manhwa.
+    // Atualiza os dados do book.
     async delete(dbSession: SqliteDatabase): Promise<void> {
-        await dbSession.run(`DELETE FROM manhwas WHERE id = ?`,
+        await dbSession.run(`DELETE FROM books WHERE id = ?`,
         [this.id]);
     }
 
-    // Busca um manhwa pelo ID.
-    static async getById(dbSession: SqliteDatabase, id: number): Promise<ManhwaModel | null> {
+    // Busca um book pelo ID.
+    static async getById(dbSession: SqliteDatabase, id: number): Promise<BookModel | null> {
         const row = await dbSession.get(
-            `SELECT * FROM manhwas WHERE id = ?`, [id]
+            `SELECT * FROM books WHERE id = ?`, [id]
         );
         if (!row) return null;
-        return ManhwaModel.mapRowToModel(row);
+        return BookModel.mapRowToModel(row);
     }
 
-    // Retorna todos os manhwas
-    static async getAll(dbSession: SqliteDatabase): Promise<ManhwaModel[]> {
-        const rows = await dbSession.all(`SELECT * FROM manhwas`);
+    // Retorna todos os books
+    static async getAll(dbSession: SqliteDatabase): Promise<BookModel[]> {
+        const rows = await dbSession.all(`SELECT * FROM books`);
         return rows.map((row: any) => this.mapRowToModel(row));
     }
 
     // Mapeia uma linha do banco para o modelo
-    static mapRowToModel(row: any): ManhwaModel {
-        return new ManhwaModel(
+    static mapRowToModel(row: any): BookModel {
+        return new BookModel(
             row.id,
             row.title,
             row.author,
@@ -119,8 +119,8 @@ class ManhwaModel {
     }
 
     // Cria uma instância a partir do JSON
-    static fromJson(json: any): ManhwaModel {
-        return new ManhwaModel(
+    static fromJson(json: any): BookModel {
+        return new BookModel(
             json.id,
             json.title,
             json.author,
@@ -133,4 +133,4 @@ class ManhwaModel {
 }
 
 
-export default ManhwaModel;
+export default BookModel;

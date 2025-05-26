@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Manhwa Library",
-  description: "A library for descriptions and notes of manhwas",
+  title: "Book Library",
+  description: "A library for descriptions and notes of books",
 };
 
 export default function RootLayout({

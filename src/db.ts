@@ -4,7 +4,7 @@ import { open } from 'sqlite';
 // Abre a conexão com o banco de dados
 async function openDb() {
   return open({
-    filename: './src/manhwas.db', // Caminho do arquivo
+    filename: './src/books.db', // Caminho do arquivo
     driver: sqlite3.Database
   });
 }
@@ -13,7 +13,7 @@ async function openDb() {
 async function setupDatabase() {
   const db = await openDb();
   await db.exec(`
-    CREATE TABLE IF NOT EXISTS manhwas (
+    CREATE TABLE IF NOT EXISTS books (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       genres TEXT NOT NULL,

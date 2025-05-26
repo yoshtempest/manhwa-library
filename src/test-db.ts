@@ -4,13 +4,13 @@ import sqlite3 from 'sqlite3';
 async function setupDatabase() {
   // 1. Abre a conexão
   const db = await open({
-    filename: './src/manhwas.db',
+    filename: './src/books.db',
     driver: sqlite3.Database
   });
 
   // 2. Cria a tabela se não existir
   await db.exec(`
-    CREATE TABLE IF NOT EXISTS manhwas (
+    CREATE TABLE IF NOT EXISTS books (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       genres TEXT NOT NULL,
@@ -21,7 +21,7 @@ async function setupDatabase() {
     )
   `);
 
-  console.log("Tabela 'manhwas' verificada/criada com sucesso! ✅");
+  console.log("Tabela 'books' verificada/criada com sucesso! ✅");
   await db.close();
 }
 
