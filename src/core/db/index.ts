@@ -77,7 +77,8 @@ class DBConnectionHandler {
 
 // Instancia a classe DBConnectionHandler e conecta ao banco de dados.
 const db = new DBConnectionHandler();
-db.connect()
+await db.connect()
+await db.createTables();
 
 export default db;
 
