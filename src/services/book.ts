@@ -12,14 +12,14 @@ class BookService {
     // esse toResponse e fromRequest me parece muito com o que eu fiz no UserService
     // mas eu não fiz isso no models/book né
     async add(request: BookRequest): Promise<BookResponse> {
-        const bookModel = BookModel.fromRequest(request);
+        const bookModel = BookModel.mapRequestToModel(request);
         const newBook = await bookModel.add(this.dbSession);
-        return BookModel.toResponse(newBook);
+        return BookModel.mapModelToResponse(newBook);
     }
 
     async getAll(): Promise<BookResponse[]> {
         const books = await BookModel.getAll(this.dbSession);
-        return books.map(BookModel.toResponse);
+        return books.map(BookModel.mapModelToResponse);
     }
 
     async getById(id: number): Promise<BookResponse | null> {
@@ -27,16 +27,16 @@ class BookService {
         if (!book) {
             return null;
         }
-        return BookModel.toResponse(book);
+        return BookModel.mapModelToResponse(book);
     }
 
     async update(id: number, request: BookRequest): Promise<BookResponse | null> {
-        const bookModel = BookModel.fromRequest(request);
+        const bookModel = BookModel.mapRequestToModel(request);
         const updatedBook = await bookModel.update(this.dbSession, id);
         if (!updatedBook) {
             return null;
         }
-        return BookModel.toResponse(updatedBook);
+        return BookModel.mapModelToResponse(updatedBook);
     }
 
     async delete(id: number): Promise<boolean> {

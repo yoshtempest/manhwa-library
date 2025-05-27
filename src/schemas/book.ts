@@ -1,4 +1,5 @@
 export interface BookRequest {
+    genre_id: string;
     title: string;
     author: string;
     genres: string;

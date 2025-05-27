@@ -9,6 +9,7 @@ class BookModel {
         public author: string,
         public description: string,
         public genreId: number,
+        public imagePath: string,
         public createdAt: Date,
         public updatedAt: Date
     ) {}
@@ -22,6 +23,7 @@ class BookModel {
                 author,
                 description,
                 genreID,
+                imagePath,
                 createdAt,
                 updatedAt
             )
@@ -31,6 +33,7 @@ class BookModel {
                 this.author,
                 this.description,
                 this.genreId,
+                this.imagePath,
                 this.createdAt.toISOString(),
                 this.updatedAt.toISOString()
             ]
@@ -45,6 +48,7 @@ class BookModel {
             this.author,
             this.description,
             this.genreId,
+            this.imagePath,
             this.createdAt,
             this.updatedAt
         );
@@ -58,6 +62,7 @@ class BookModel {
                 author = ?,
                 description = ?,
                 genreID = ?,
+                imagePath = ?,
                 updatedAt = ?
                 WHERE id = ?
             `,
@@ -66,6 +71,7 @@ class BookModel {
                 this.author,
                 this.description,
                 this.genreId,
+                this.imagePath,
                 this.updatedAt.toISOString(),
                 this.id,
             ]
@@ -101,6 +107,7 @@ class BookModel {
             request.author,
             request.genres,
             request.description,
+            request.genre_id,
             request.note,
             request.image_path
         );
@@ -112,10 +119,10 @@ class BookModel {
             id: model.id,
             title: model.title,
             author: model.author,
-            genres: model.genres,
+            genre_id: model.genreId,
             description: model.description,
-            note: model.note,
-            image_path: model.image_path
+            // note: model.note, // nota não está no modelo, mas pode ser adicionada se necessário.
+            image_path: model.imagePath
         };
     }
 
@@ -127,6 +134,7 @@ class BookModel {
             row.author,
             row.description,
             row.genre_id,
+            row.image_path,
             new Date(row.created_at),
             new Date(row.updated_at)
         );
@@ -153,6 +161,7 @@ class BookModel {
             json.author,
             json.description,
             json.genreId,
+            json.imagePath,
             new Date(json.createdAt),
             new Date(json.updatedAt)
         );
