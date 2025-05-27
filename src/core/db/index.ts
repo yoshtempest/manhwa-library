@@ -49,6 +49,15 @@ class DBConnectionHandler {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
+            CREATE TABLE IF NOT EXISTS books (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                author TEXT,
+                genres TEXT NOT NULL,
+                description TEXT,
+                note REAL NOT NULL DEFAULT 0,
+                image_path TEXT,
+            );
         `);
     }
     // Remove as tabelas do banco de dados.
