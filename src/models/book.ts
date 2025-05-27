@@ -1,4 +1,5 @@
 import { SqliteDatabase } from "@/core/db";
+import { BookRequest, BookResponse } from "@/schemas/book";
 
 
 class BookModel {
@@ -90,6 +91,32 @@ class BookModel {
     static async getAll(dbSession: SqliteDatabase): Promise<BookModel[]> {
         const rows = await dbSession.all(`SELECT * FROM books`);
         return rows.map((row: any) => this.mapRowToModel(row));
+    }
+
+        // Converte um bookRequest em BookModel
+    static mapRequestToModel(request: BookRequest): BookModel {
+        return new BookModel(
+            0,
+            request.title,
+            request.author,
+            request.genres,
+            request.description,
+            request.note,
+            request.image_path
+        );
+    }
+
+    // Converte um BookModel em bookResponse
+    static mapModelToResponse(model: BookModel): BookResponse {
+        return {
+            id: model.id,
+            title: model.title,
+            author: model.author,
+            genres: model.genres,
+            description: model.description,
+            note: model.note,
+            image_path: model.image_path
+        };
     }
 
     // Mapeia uma linha do banco para o modelo

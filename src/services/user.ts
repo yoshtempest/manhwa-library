@@ -1,6 +1,6 @@
 import { SqliteDatabase } from "@/core/db";
 import UserModel from "@/models/user";
-import { userRequest, UserLogin, userResponse } from "@/schemas/user";
+import { UserRequest, UserLogin, UserResponse } from "@/schemas/user";
 
 
 /*
@@ -19,7 +19,7 @@ class UserService {
         Se já existir, lança um erro.
         Se não existir, adiciona e retorna os dados do usuário.
     */
-    async add(request: userRequest): Promise<userResponse> {
+    async add(request: UserRequest): Promise<UserResponse> {
         
         const userModel = UserService.mapRequestToModel(request);
 
@@ -37,7 +37,7 @@ class UserService {
         - Se tudo estiver correto, retorna os dados do usuário.
         - Se não, retorna null.
     */
-    async login(request: UserLogin): Promise<userResponse | null> {
+    async login(request: UserLogin): Promise<UserResponse | null> {
         
         const onDB = await UserModel.getByEmail(this.dbSession, request.email);
         if (!onDB) {
@@ -47,35 +47,6 @@ class UserService {
             return null;
         }
         return UserService.mapModelToResponse(onDB);
-    }
-    /*
-        Converte um userRequest em um UserModel.
-        Define o usuário como ativo e define as datas de criação e atualização.
-    */
-    static mapRequestToModel(request: userRequest): UserModel {
-        return new UserModel(
-            0,
-            request.username,
-            request.email,
-            request.password,
-            true,
-            new Date(),
-            new Date()
-        );
-    }
-    /*
-        Converte um UserModel em um userResponse. Basicamente, converte um modelo em uma resposta.
-        Formata as datas para string ISO.
-    */
-    static mapModelToResponse(model: UserModel): userResponse {
-        return {
-            id: model.id,
-            username: model.username,
-            email: model.email,
-            active: model.active,
-            created_at: model.createdAt.toISOString(),
-            updated_at: model.updatedAt.toISOString(),
-        };
     }
 }
 

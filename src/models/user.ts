@@ -1,4 +1,5 @@
 import { SqliteDatabase } from "@/core/db";
+import { UserRequest, UserResponse, UserLogin } from "@/schemas/user";
 
 
 // Representa um usuário e fornece métodos para manipulação no banco de dados.
@@ -115,6 +116,36 @@ class UserModel {
             return null;
         }
         return this.mapRowToModel(row);
+    }
+    /*
+        Converte um userRequest em um UserModel.
+        Define o usuário como ativo e define as datas de criação e atualização.
+    */
+    static mapRequestToModel(request: UserRequest): UserModel {
+        return new UserModel(
+            0,
+            request.username,
+            request.email,
+            request.password,
+            true,
+            new Date(),
+            new Date() // possivelmente, ambos os métodos mapRequestToModel e mapModelToResponse deveriam estar em models/user.ts
+            // seguindo o mesmo padrão, eu vou colocar os 2 métodos para BookModel em models/book.ts
+        );
+    }
+    /*
+        Converte um UserModel em um userResponse. Basicamente, converte um modelo em uma resposta.
+        Formata as datas para string ISO.
+    */
+    static mapModelToResponse(model: UserModel): UserResponse {
+        return {
+            id: model.id,
+            username: model.username,
+            email: model.email,
+            active: model.active,
+            created_at: model.createdAt.toISOString(),
+            updated_at: model.updatedAt.toISOString(),
+        };
     }
     /**
        Converte uma linha do banco de dados em uma instância de UserModel.

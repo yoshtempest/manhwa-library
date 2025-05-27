@@ -1,4 +1,4 @@
-export interface userRequest {
+export interface UserRequest {
     username: string;
     email: string;
     password: string;
@@ -9,7 +9,7 @@ export interface UserLogin {
     password: string;
 }
 
-export interface userResponse {
+export interface UserResponse {
     id: number;
     username: string;
     email: string;
