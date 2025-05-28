@@ -21,14 +21,14 @@ class UserService {
     */
     async add(request: UserRequest): Promise<UserResponse> {
         
-        const userModel = UserService.mapRequestToModel(request);
+        const userModel = UserModel.mapRequestToModel(request);
 
         const onDB = await UserModel.getByEmail(this.dbSession, userModel.email);
         if (onDB) {
             throw new Error("User already exists");
         }
         const newUser = await userModel.add(this.dbSession);
-        return UserService.mapModelToResponse(newUser);
+        return UserModel.mapModelToResponse(newUser);
         }
 
     /*
@@ -46,7 +46,7 @@ class UserService {
         if (onDB.password !== request.password) {
             return null;
         }
-        return UserService.mapModelToResponse(onDB);
+        return UserModel.mapModelToResponse(onDB);
     }
 }
 
