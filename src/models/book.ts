@@ -79,9 +79,9 @@ class BookModel {
     }
 
     // Atualiza os dados do book.
-    async delete(dbSession: SqliteDatabase): Promise<void> {
+    static async delete(dbSession: SqliteDatabase, id: string): Promise<void> {
         await dbSession.run(`DELETE FROM books WHERE id = ?`,
-        [this.id]);
+        [id]);
     }
 
     // Busca um book pelo ID.

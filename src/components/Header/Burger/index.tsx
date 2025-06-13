@@ -23,7 +23,8 @@ const Burger = () => {
         { label: '📚Genres', path: '/genres' },
         { label: '📈Trending', path: '/trending' },
         { label: '💖Favorites', path: '/favorites' },
-        { label: '🔑 Login', path: '/api/login' }
+        { label: '🔑 Login', path: '/login' },
+        { label: '📝 Register', path: '/register' }
     ];
 
     return (

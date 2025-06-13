@@ -40,7 +40,7 @@ class BookService {
         return BookModel.mapModelToResponse(updatedBook);
     }
 
-    async delete(id: number): Promise<boolean> {
+    async delete(id: string): Promise<boolean> {
         const existingBook = await BookModel.getById(this.dbSession, id);
         if (!existingBook) {
             return false;
