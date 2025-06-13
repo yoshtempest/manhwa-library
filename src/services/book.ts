@@ -31,16 +31,24 @@ class BookService {
     }
 
     async update(id: number, request: BookRequest): Promise<BookResponse | null> {
-        const bookModel = BookModel.mapRequestToModel(request);
-        const updatedBook = await bookModel.update(this.dbSession, id);
-        if (!updatedBook) {
+        const existingBook = await BookModel.getById(this.dbSession, id);
+        if (!existingBook) {
             return null;
         }
+        Object.assign(existingBook, BookModel.mapRequestToModel(request));
+        const updatedBook = await existingBook.update(this.dbSession, id);
         return BookModel.mapModelToResponse(updatedBook);
     }
 
     async delete(id: number): Promise<boolean> {
+        const existingBook = await BookModel.getById(this.dbSession, id);
+        if (!existingBook) {
+            return false;
+        }
         const result = await BookModel.delete(this.dbSession, id);
         return result;
     }
 }
+
+
+export default BookService;

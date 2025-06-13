@@ -18,10 +18,10 @@ const Burger = () => {
 
     // Array de objetos contendo os dados dos links
     const menuItems = [
-        { label: 'Home🏠', path: '/' },
-        { label: 'Genres📚', path: '/genres' },
-        { label: 'Trending📈', path: '/trending' },
-        { label: 'Favorites💖', path: '/favorites' }
+        { label: '🏠Home', path: '/' },
+        { label: '📚Genres', path: '/genres' },
+        { label: '📈Trending', path: '/trending' },
+        { label: '💖Favorites', path: '/favorites' }
     ];
 
     return (
