@@ -1,6 +1,6 @@
 import db from "@/core/db";
 import UserService from "@/services/user";
-import { userRequest } from "@/schemas/user";
+import { UserRequest } from "@/schemas/user";
 // import { json } from "stream/consumers";
 
 
@@ -19,7 +19,7 @@ import { userRequest } from "@/schemas/user";
 export async function POST (request: Request): Promise<Response> {
     try {
         // 1. Recebe e valida os dados de cadastro enviados pelo cliente
-        const userData: userRequest = await request.json();
+        const userData: UserRequest = await request.json();
 
         // 2. Cria uma nova sessão(aqui é necessário mudar) com o banco de dados
         const session = await db.getSession();

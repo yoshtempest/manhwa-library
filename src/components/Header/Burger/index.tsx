@@ -7,6 +7,7 @@ import BurgerDarkClose from '@/assets/icons/BurgerDarkClose.svg'
 import Icon from '@/components/Icon';
 import Link from 'next/link';
 
+
 const Burger = () => {
     // Estado para controlar a abertura e fechamento do menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,8 @@ const Burger = () => {
         { label: '🏠Home', path: '/' },
         { label: '📚Genres', path: '/genres' },
         { label: '📈Trending', path: '/trending' },
-        { label: '💖Favorites', path: '/favorites' }
+        { label: '💖Favorites', path: '/favorites' },
+        { label: '🔑 Login', path: '/api/login' }
     ];
 
     return (
