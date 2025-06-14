@@ -1,12 +1,12 @@
 import styles from "./styles.module.css";
-
+import Input from "@/components/Input";
 
 // Todos os inputs serão iguais(só muda quando muda o tema) então dá pra componentizar
 const Login = () => {
     return (
         <div className={styles.Container}>
-            <h1>Login</h1>
-            <form>
+            <h1 className={styles.Title}>Login</h1>
+            <form className={styles.Form}>
                 <label htmlFor="email">e-mail:</label>
                 <input type="text" id="email" name="email" placeholder="seu@email.com" required />
                 
