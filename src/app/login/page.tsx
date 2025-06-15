@@ -7,11 +7,12 @@ const Login = () => {
         <div className={styles.Container}>
             <h1 className={styles.Title}>Login</h1>
             <form className={styles.Form}>
+
                 <label htmlFor="email">e-mail:</label>
-                <input type="text" id="email" name="email" placeholder="seu@email.com" required />
+                <Input placeholder="seu@email.com"/>
                 
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" required />
+                <Input placeholder="12345678"/>
                 
                 <button type="submit">Entrar</button>
             </form>

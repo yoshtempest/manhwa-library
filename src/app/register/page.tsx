@@ -1,19 +1,20 @@
 import styles from "./styles.module.css";
+import Input from "@/components/Input";
 
 
 const Register = () => {
     return (
         <div className={styles.Container}>
-            <h1>Register</h1>
-            <form>
+            <h1 className={styles.Title}>Register</h1>
+            <form className={styles.Form}>
                 <label htmlFor="email">E-mail:</label>
-                <input type="text" id="email" name="email" placeholder="seu@email.com" required />
+                <Input placeholder="seu@email.com"/>
 
                 <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" required />
+                <Input placeholder="nome de usuário"/>
                 
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" required />
+                <Input placeholder="digite sua senha aqui"/>
                 
                 <button type="submit">Concluir</button>
             </form>
