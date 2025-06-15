@@ -43,6 +43,7 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden; /* Evita rolagem horizontal */
   font-size: 100%; /* Garante que o tamanho da fonte seja consistente */
 }
 
