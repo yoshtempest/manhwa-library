@@ -12,7 +12,7 @@ const Login = () => {
                     <Input placeholder="seu@email.com"/>
                 
                     <label htmlFor="password">Password:</label>
-                    <Input placeholder="digite sua senha"/>
+                    <Input placeholder="senhaSegura123"/>
 
                 <button type="submit" className={styles.Submit}>Entrar</button>
             </form>

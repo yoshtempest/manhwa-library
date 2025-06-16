@@ -11,10 +11,10 @@ const Register = () => {
                 <Input placeholder="seu@email.com"/>
 
                 <label htmlFor="username">Username:</label>
-                <Input placeholder="nome de usuário"/>
+                <Input placeholder="Robisvaldo Ratimbum"/>
                 
                 <label htmlFor="password">Password:</label>
-                <Input placeholder="12345678"/>
+                <Input placeholder="senhaSegura123"/>
                 
                 <button type="submit" className={styles.Submit}>Concluir</button>
             </form>
