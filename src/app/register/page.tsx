@@ -14,7 +14,7 @@ const Register = () => {
                 <Input placeholder="Robisvaldo Ratimbum"/>
                 
                 <label htmlFor="password">Password:</label>
-                <Input placeholder="senhaSegura123"/>
+                <Input placeholder="senhaSegura123" type="password"/>
                 <p className={styles.Text}> Já possui uma conta?
                     <a href="/login" className={styles.GoToLogin}> Ir para o login</a>
                 </p>
