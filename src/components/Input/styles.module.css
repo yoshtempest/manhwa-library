@@ -2,7 +2,7 @@
     font-size: clamp(1rem, 1.3rem, 1.5rem); /* Tamanho responsivo */
     padding-left: 0.7em;
     padding-right: 0.7em;
-    width: clamp(25vw, 400px);
+    width: clamp(25vw, 300px, 600px);
     height: 5vh;
     color: var(--foreground);
     outline: none;

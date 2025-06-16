@@ -17,7 +17,7 @@ const Login = () => {
                         <a href="/register" className={styles.Link}> Cadastrar-se</a>
                     </p>
 
-                <button type="submit" className={styles.Submit}>Entrar</button>
+                <button type="submit" className={styles.Submit}><a href="/">Entrar</a></button>
             </form>
         </div>
     );

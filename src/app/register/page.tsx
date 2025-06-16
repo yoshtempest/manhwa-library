@@ -20,7 +20,7 @@ const Register = () => {
                     <a href="/login" className={styles.Link}> Ir para o login</a>
                 </p>
   
-                <button type="submit" className={styles.Submit}>Concluir</button>
+                <button type="submit" className={styles.Submit}><a href="/login">Concluir</a></button>
             </form>
         </div>
     );
