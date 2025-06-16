@@ -9,7 +9,7 @@ const Login = () => {
             <form className={styles.Form}>
 
                     <label htmlFor="email">E-mail:</label>
-                    <Input placeholder="seu@email.com"/>
+                    <Input placeholder="seu@email.com" type="email"/>
                 
                     <label htmlFor="password">Password:</label>
                     <Input placeholder="senhaSegura123"/>

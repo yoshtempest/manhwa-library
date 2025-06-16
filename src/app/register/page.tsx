@@ -8,7 +8,7 @@ const Register = () => {
             <h1 className={styles.Title}>Register</h1>
             <form className={styles.Form}>
                 <label htmlFor="email">E-mail:</label>
-                <Input placeholder="seu@email.com"/>
+                <Input placeholder="seu@email.com" type="email"/>
 
                 <label htmlFor="username">Username:</label>
                 <Input placeholder="Robisvaldo Ratimbum"/>
