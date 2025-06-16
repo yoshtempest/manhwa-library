@@ -14,9 +14,9 @@ const Register = () => {
                 <Input placeholder="nome de usuário"/>
                 
                 <label htmlFor="password">Password:</label>
-                <Input placeholder="digite sua senha aqui"/>
+                <Input placeholder="12345678"/>
                 
-                <button type="submit">Concluir</button>
+                <button type="submit" className={styles.Submit}>Concluir</button>
             </form>
         </div>
     );

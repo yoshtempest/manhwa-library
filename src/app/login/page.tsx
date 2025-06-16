@@ -8,13 +8,13 @@ const Login = () => {
             <h1 className={styles.Title}>Login</h1>
             <form className={styles.Form}>
 
-                <label htmlFor="email">e-mail:</label>
-                <Input placeholder="seu@email.com"/>
+                    <label htmlFor="email">E-mail:</label>
+                    <Input placeholder="seu@email.com"/>
                 
-                <label htmlFor="password">Password:</label>
-                <Input placeholder="12345678"/>
-                
-                <button type="submit">Entrar</button>
+                    <label htmlFor="password">Password:</label>
+                    <Input placeholder="digite sua senha"/>
+
+                <button type="submit" className={styles.Submit}>Entrar</button>
             </form>
         </div>
     );
