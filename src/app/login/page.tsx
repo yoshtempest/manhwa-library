@@ -13,6 +13,10 @@ const Login = () => {
                 
                     <label htmlFor="password">Password:</label>
                     <Input placeholder="senhaSegura123"/>
+                    <p> Ainda não possui uma conta?
+                        <a href="/register" className={styles.GoToRegister}> Cadastrar-se</a>
+                    </p>
+
 
                 <button type="submit" className={styles.Submit}>Entrar</button>
             </form>
