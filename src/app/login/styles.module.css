@@ -11,7 +11,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: clamp(1.5rem, 2rem, 2.5rem);
     color: var(--foreground);
-    margin-bottom: 1rem;
+    margin-bottom: 2em;
 }
 
 .Form {
@@ -28,4 +28,8 @@
 
 .GoToRegister {
   color: aqua;
+}
+
+.Text {
+  text-align: end;
 }
