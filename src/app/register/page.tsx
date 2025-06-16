@@ -7,6 +7,7 @@ const Register = () => {
         <div className={styles.Container}>
             <h1 className={styles.Title}>Register</h1>
             <form className={styles.Form}>
+
                 <label htmlFor="email">E-mail:</label>
                 <Input placeholder="seu@email.com" type="email"/>
 
@@ -16,10 +17,9 @@ const Register = () => {
                 <label htmlFor="password">Password:</label>
                 <Input placeholder="senhaSegura123" type="password"/>
                 <p className={styles.Text}> Já possui uma conta?
-                    <a href="/login" className={styles.GoToLogin}> Ir para o login</a>
+                    <a href="/login" className={styles.Link}> Ir para o login</a>
                 </p>
-
-                
+  
                 <button type="submit" className={styles.Submit}>Concluir</button>
             </form>
         </div>

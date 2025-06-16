@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
+import styles from "../register/styles.module.css";
 import Input from "@/components/Input";
 
-// Todos os inputs serão iguais(só muda quando muda o tema) então dá pra componentizar
+
 const Login = () => {
     return (
         <div className={styles.Container}>
@@ -14,9 +14,8 @@ const Login = () => {
                     <label htmlFor="password">Password:</label>
                     <Input placeholder="senhaSegura123" type="password"/>
                     <p className={styles.Text}> Ainda não possui uma conta?
-                        <a href="/register" className={styles.GoToRegister}> Cadastrar-se</a>
+                        <a href="/register" className={styles.Link}> Cadastrar-se</a>
                     </p>
-
 
                 <button type="submit" className={styles.Submit}>Entrar</button>
             </form>
