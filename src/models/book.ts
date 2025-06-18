@@ -102,14 +102,14 @@ class BookModel {
         // Converte um bookRequest em BookModel
     static mapRequestToModel(request: BookRequest): BookModel {
         return new BookModel(
-            0,
+            0, // ID será gerado pelo banco
             request.title,
             request.author,
-            request.genres,
             request.description,
-            request.genre_id,
-            request.note,
-            request.image_path
+            0,
+            request.image_path || "default.png", // Se image_path não for fornecido, define como string vazia
+            new Date(), // Define a data de criação como agora
+            new Date() // Define a data de atualização como agora
         );
     }
 

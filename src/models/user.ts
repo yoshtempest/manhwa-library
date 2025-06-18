@@ -1,11 +1,12 @@
 import { SqliteDatabase } from "@/core/db";
+import { idGenerator } from "@/core/generator";
 import { UserRequest, UserResponse, UserLogin } from "@/schemas/user";
 
 
 // Representa um usuário e fornece métodos para manipulação no banco de dados.
 class UserModel {
   constructor(
-    public id: number = 0,
+    public id: string = idGenerator(),
     public username: string,
     public email: string,
     public password: string,
@@ -29,6 +30,7 @@ class UserModel {
         const result = await dbSession.run(
             `INSERT INTO users
             (
+                id,
                 username,
                 email,
                 password,
@@ -36,8 +38,9 @@ class UserModel {
                 created_at,
                 updated_at
             )
-            VALUES (?, ?, ?, ?, ?, ?)`,
+            VALUES (?, ?, ?, ?, ?, ?, ?)`,
             [
+                this.id,
                 this.username,
                 this.email,
                 this.password,
@@ -46,12 +49,8 @@ class UserModel {
                 this.updatedAt.toISOString()
             ]
         );
-        const userId = result.lastID;
-        if (typeof userId !== "number") {
-            throw new Error("Failed to retrieve last inserted user ID.");
-        }
         return new UserModel(
-            userId,
+            this.id,
             this.username,
             this.email,
             this.password,
@@ -123,14 +122,13 @@ class UserModel {
     */
     static mapRequestToModel(request: UserRequest): UserModel {
         return new UserModel(
-            0,
+            idGenerator(), // Gera um novo ID para o usuário
             request.username,
             request.email,
             request.password,
             true,
             new Date(),
-            new Date() // possivelmente, ambos os métodos mapRequestToModel e mapModelToResponse deveriam estar em models/user.ts
-            // seguindo o mesmo padrão, eu vou colocar os 2 métodos para BookModel em models/book.ts
+            new Date() 
         );
     }
     /*

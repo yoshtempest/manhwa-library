@@ -21,6 +21,7 @@ class DBConnectionHandler {
                 filename: this.dbPath,
                 driver: sqlite3.Database,
             });
+            await this.createTables()
         }
     }
     /*
@@ -41,7 +42,7 @@ class DBConnectionHandler {
         if (!this.db) throw new Error('Database not connected');
         await this.db.exec(`
             CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id TEXT PRIMARY KEY,
                 username TEXT NOT NULL,
                 email TEXT NOT NULL,
                 password TEXT NOT NULL,
@@ -50,13 +51,13 @@ class DBConnectionHandler {
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
             CREATE TABLE IF NOT EXISTS books (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id TEXT PRIMARY KEY,
                 title TEXT NOT NULL,
                 author TEXT,
                 genres TEXT NOT NULL,
                 description TEXT,
                 note REAL NOT NULL DEFAULT 0,
-                image_path TEXT,
+                image_path TEXT
             );
         `);
     }

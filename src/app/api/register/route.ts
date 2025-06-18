@@ -27,8 +27,10 @@ export async function POST (request: Request): Promise<Response> {
         // 3. Instancia o serviço de usuário, passando a sessão
         const service = new UserService(session);
 
+
         try {
             // 4. Tenta adicionar o usuário(verifica se já existe internamente)
+
             const newUser = await service.add(userData);
 
             // 5. Retorna os dados do usuário cadastrado

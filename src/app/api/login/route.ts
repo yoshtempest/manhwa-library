@@ -1,6 +1,7 @@
 import db from "@/core/db";
 import UserService from "@/services/user";
 import { UserLogin } from "@/schemas/user";
+import SecurityHandler from "@/core/security";
 
 /*
   Função responsável por autenticar um usuário.
@@ -37,7 +38,10 @@ export async function POST(request: Request): Promise<Response> {
         }
 
         // 6. Retorna os dados do usuário autenticado
-        return new Response(JSON.stringify(response), {
+        return new Response(JSON.stringify({
+            user: response,
+            token: SecurityHandler.generateTokenFromId(String(response.id)), // Gera um token JWT com validade de 1 hora
+        }), {
             status: 200,
             headers: {
                 "Content-Type": "application/json",

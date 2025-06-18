@@ -16,7 +16,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "bcrypt": "^6.0.0",
     "better-sqlite3": "^11.10.0",
+    "jsonwebtoken": "^9.0.2",
     "lightningcss": "1.25.0",
     "next": "^15.3.0",
     "react": "^19.1.0",
@@ -27,6 +30,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.17.47",
     "@types/react": "^19",
     "@types/react-dom": "^19",
