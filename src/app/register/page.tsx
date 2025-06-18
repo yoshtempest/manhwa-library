@@ -24,7 +24,7 @@ const Register = () => {
     return (
         <div className={styles.Container}>
             <h1 className={styles.Title}>Register</h1>
-            <form className={styles.Form}>
+            <form className={styles.Form} onSubmit={handleSubmit}>
 
                 <label htmlFor="email">E-mail:</label>
                 <Input
@@ -53,7 +53,7 @@ const Register = () => {
                     <a href="/login" className={styles.Link}> Ir para o login</a>
                 </p>
   
-                <button type="submit" className={styles.Submit} onClick={handleSubmit}>Concluir</button>
+                <button type="submit" className={styles.Submit}>Concluir</button>
             </form>
         </div>
     );
