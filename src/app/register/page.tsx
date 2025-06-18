@@ -17,9 +17,6 @@ const Register = () => {
         if (email && username && password) {
             return router.push('/login')
         }
-        else {
-            alert('Preencha todos os campos!');
-        }
     } 
     return (
         <div className={styles.Container}>
