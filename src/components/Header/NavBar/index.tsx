@@ -2,8 +2,7 @@
 
 import styles from './styles.module.css'
 import Icon from "@/components/Icon";
-import SearchIcon from '@/assets/icons/SearchIcon.svg'
-import SearchIconWhite from '@/assets/icons/SearchIconWhite.svg'
+import ICONS from "@/assets/index"
 import { useTheme } from "@/components/ThemeProvider";
 
 
@@ -19,7 +18,7 @@ const NavBar = () => {
                 />
                 <div className={styles.SearchIcon}>
                     <Icon 
-                        iconPath={theme === "dark" ? SearchIconWhite.src : SearchIcon.src}
+                        iconPath={theme === "dark" ? ICONS.searchIconWhite.src : ICONS.searchIcon.src}
                         alt="Search icon"
                     />
                 </div>
@@ -27,5 +26,6 @@ const NavBar = () => {
         </div>
     )
 }
+
 
 export default NavBar;

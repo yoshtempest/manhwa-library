@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <BookImage
-        imagePath={IMAGES.soloLeveling}
+        imagePath={IMAGES.soloLeveling.src}
         alt="Solo Leveling image" 
       />
     </div>

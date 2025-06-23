@@ -1,9 +1,8 @@
 "use client"; // Indica que é um componente do lado do cliente (Next.js)
 
 import styles from './styles.module.css'
-import DarkTheme from '@/assets/icons/DarkTheme.svg'
 import Icon from "@/components/Icon";
-import LightTheme from '@/assets/icons/LightTheme.svg'
+import ICONS from "@/assets/index";
 import { useEffect, useState, createContext, useContext } from "react";
 
 
@@ -49,7 +48,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
           aria-label={`${theme === "dark" ? "light" : "dark"}`}
         >
           <Icon 
-            iconPath={theme === "dark" ? DarkTheme.src : LightTheme.src} 
+            iconPath={theme === "dark" ? ICONS.darkTheme.src : ICONS.lightTheme.src} 
             alt={`Theme Icon ${theme === "dark" ? "light" : "dark"}`} 
           />
         </button>
