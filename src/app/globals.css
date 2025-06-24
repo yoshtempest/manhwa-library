@@ -43,8 +43,12 @@
 
 html, body {
   height: 100%;
-  overflow: hidden; /* Evita rolagem horizontal */
+  overflow: hidden; /* Basta trocar por overflow-x para que o scroll vertical funcione */
   font-size: 100%; /* Garante que o tamanho da fonte seja consistente */
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -76,4 +80,10 @@ q::before, q::after {
 table {
   border-collapse: collapse; /* Remove espaçamento entre células */
   border-spacing: 0;
+}
+
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

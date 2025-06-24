@@ -2,8 +2,8 @@ import styles from './styles.module.css';
 
 
 interface Props {
-    imagePath?: string;
-    alt?: string;
+    imagePath: string;
+    alt: string;
 }
 
 const bookImage = ({
