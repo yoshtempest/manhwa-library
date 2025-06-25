@@ -1,5 +1,4 @@
 import BookImage from '@/components/BookImage';
-import IMAGES from '@/uploads';
 import { getBooks } from './mocks/books';
 
 
@@ -11,7 +10,7 @@ export default async function Home() {
         <div key={book.id}>
           <h2>{book.title}</h2>
           <BookImage
-            imagePath={book.image_path} // problema nessa linha, a imagem tá sendo string e não imagem
+            imagePath={book.image_path} // problema nessa linha
             alt={`Capa do livro ${book.title}`}
           />
         </div>

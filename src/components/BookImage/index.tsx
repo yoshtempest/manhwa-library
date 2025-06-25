@@ -2,16 +2,17 @@ import styles from './styles.module.css';
 
 
 interface Props {
-    imagePath: string;
+    imagePath: string | undefined;
     alt: string;
 }
 
 const bookImage = ({
     imagePath,
-    alt,
+    alt
 } : Props) => {
+    const src = typeof imagePath === 'string' ? imagePath : imagePath;
     return (
-        <img src={imagePath} alt={alt} className={styles.image}/>
+        <img src={src} alt={alt} className={styles.image}/>
     )
 };
 
