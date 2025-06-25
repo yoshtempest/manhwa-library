@@ -1,20 +1,8 @@
-import BookImage from '@/components/BookImage';
-import { getBooks } from './mocks/books';
+import Books from '@/components/Book'
 
 
 export default async function Home() {
-  const books = await getBooks();
   return (
-    <div className="Container">
-      {books.map((book) => (
-        <div key={book.id}>
-          <h2>{book.title}</h2>
-          <BookImage
-            imagePath={book.image_path} // problema nessa linha
-            alt={`Capa do livro ${book.title}`}
-          />
-        </div>
-      ))}
-    </div>
+    <Books />
   );
 }

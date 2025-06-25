@@ -33,6 +33,7 @@ export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
             image_path: IMAGES.novatoDeNivelMaximo.src
         }
     ]
+    // filtro para buscar os livros por nome
     return bookTitle ?
     allBooks.filter(book =>
         book.title.toLowerCase().includes(book.title.toLowerCase())

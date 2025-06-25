@@ -1,0 +1,24 @@
+import styles from './styles.module.css';
+import BookImage from '@/components/BookImage';
+import { getBooks } from '@/app/mocks/books';
+
+
+async function Books() {
+  const books = await getBooks();
+  return (
+    <div className={styles.Container}>
+      {books.map((book) => (
+        <div key={book.id}>
+          <h2 className={styles.Title}>{book.title}</h2>
+          <BookImage
+            imagePath={book.image_path} // problema nessa linha
+            alt={`Capa do livro ${book.title}`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+export default Books;
