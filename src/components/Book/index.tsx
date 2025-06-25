@@ -16,6 +16,9 @@ async function Books() {
           />
         </div>
       ))}
+      {/* <div>
+        <p> livro clicado e sua descrição,some tudo aqui e mantém apenas o livro clicado na posição em que o magic emperor está</p>
+      </div> */}
     </div>
   );
 }
