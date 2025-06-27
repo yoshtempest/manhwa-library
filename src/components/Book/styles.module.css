@@ -1,12 +1,19 @@
 .Container {
+    padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 5rem;
+    gap: 5em;
     padding-top: 4em;
 }
 
 .Title {
-    font-size: 1.5em;
+    font-size: clamp(1.2em, 1.5em, 1.7em);
     text-align: center;
+}
+
+@media (max-width: 450px) {
+    .Container {
+        flex-direction: column;
+    }
 }

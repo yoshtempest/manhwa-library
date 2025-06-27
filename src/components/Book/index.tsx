@@ -14,6 +14,7 @@ async function Books() {
             imagePath={book.image_path} // problema nessa linha
             alt={`Capa do livro ${book.title}`}
           />
+          <h2>{book.note}</h2>
         </div>
       ))}
       {/* <div>
