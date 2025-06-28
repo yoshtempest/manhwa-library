@@ -10,9 +10,8 @@ const bookImage = ({
     imagePath,
     alt
 } : Props) => {
-    const src = typeof imagePath === 'string' ? imagePath : imagePath;
     return (
-        <img src={src} alt={alt} className={styles.image}/>
+        <img src={imagePath} alt={alt} className={styles.image}/>
     )
 };
 

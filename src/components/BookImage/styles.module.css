@@ -4,3 +4,8 @@
     height: clamp(50%, 100%, 125%);
     cursor: pointer;
 }
+
+.image:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out;
+}

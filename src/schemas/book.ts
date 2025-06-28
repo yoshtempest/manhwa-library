@@ -5,7 +5,7 @@ export interface BookRequest {
     genres: string;
     description: string;
     note: number; // Imagino que a nota não é opcional, pois sempre irá retornar um número entre 0 e 5(estrelas)
-    image_path: string;
+    image_path: string | undefined;
 }
 
 export interface BookResponse {
