@@ -4,11 +4,12 @@ import { BookRequest, BookResponse } from "@/schemas/book";
 
 class BookModel {
     constructor(
-        public id: number = 0,
+        public id: string,
         public title: string,
         public author: string,
         public description: string,
-        public genreId: number,
+        public genreId: string,
+        public note: number = 0, // Nota padrão é 0
         public imagePath: string,
         public createdAt: Date,
         public updatedAt: Date
@@ -23,23 +24,25 @@ class BookModel {
                 author,
                 description,
                 genreID,
+                note,
                 imagePath,
                 createdAt,
                 updatedAt
             )
-            VALUES (?, ?, ?, ?, ?, ?)`,
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
             [
                 this.title,
                 this.author,
                 this.description,
                 this.genreId,
+                this.note,
                 this.imagePath,
                 this.createdAt.toISOString(),
                 this.updatedAt.toISOString()
             ]
         );
         const bookId = result.lastID;
-        if (typeof bookId !== "number") {
+        if (typeof bookId !== "string") {
             throw new Error("Failed to retrieve the last inserted ID.");
         }
         return new BookModel(
@@ -48,6 +51,7 @@ class BookModel {
             this.author,
             this.description,
             this.genreId,
+            this.note,
             this.imagePath,
             this.createdAt,
             this.updatedAt
@@ -62,6 +66,7 @@ class BookModel {
                 author = ?,
                 description = ?,
                 genreID = ?,
+                note = ?,
                 imagePath = ?,
                 updatedAt = ?
                 WHERE id = ?
@@ -85,7 +90,7 @@ class BookModel {
     }
 
     // Busca um book pelo ID.
-    static async getById(dbSession: SqliteDatabase, id: number): Promise<BookModel | null> {
+    static async getById(dbSession: SqliteDatabase, id: string): Promise<BookModel | null> {
         const row = await dbSession.get(
             `SELECT * FROM books WHERE id = ?`, [id]
         );
@@ -102,12 +107,13 @@ class BookModel {
         // Converte um bookRequest em BookModel
     static mapRequestToModel(request: BookRequest): BookModel {
         return new BookModel(
-            0, // ID será gerado pelo banco
+            "", // ID será gerado pelo banco de dados
             request.title,
             request.author,
             request.description,
-            0,
-            request.image_path || "default.png", // Se image_path não for fornecido, define como string vazia
+            "" + request.genre_id, // Garante que genre_id seja uma string
+            request.note || 0,
+            request.image_path === "string" ? request.image_path : "",
             new Date(), // Define a data de criação como agora
             new Date() // Define a data de atualização como agora
         );
@@ -121,7 +127,8 @@ class BookModel {
             author: model.author,
             genre_id: model.genreId,
             description: model.description,
-            // note: model.note, // nota não está no modelo, mas pode ser adicionada se necessário.
+            genres: "",
+            note: model.note,
             image_path: model.imagePath
         };
     }
@@ -134,6 +141,7 @@ class BookModel {
             row.author,
             row.description,
             row.genre_id,
+            row.note || 0,
             row.image_path,
             new Date(row.created_at),
             new Date(row.updated_at)
@@ -161,6 +169,7 @@ class BookModel {
             json.author,
             json.description,
             json.genreId,
+            json.note || 0,
             json.imagePath,
             new Date(json.createdAt),
             new Date(json.updatedAt)

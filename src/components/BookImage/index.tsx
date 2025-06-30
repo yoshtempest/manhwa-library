@@ -1,8 +1,10 @@
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import styles from './styles.module.css';
+import Image from 'next/image';
 
 
 interface Props {
-    imagePath: string | undefined;
+    imagePath: string | StaticImport;
     alt: string;
 }
 
@@ -11,7 +13,7 @@ const bookImage = ({
     alt
 } : Props) => {
     return (
-        <img src={imagePath} alt={alt} className={styles.image}/>
+        <Image src={imagePath} width={100} height={100} layout="responsive" alt={alt} className={styles.image}/>
     )
 };
 

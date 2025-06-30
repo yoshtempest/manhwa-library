@@ -22,7 +22,7 @@ class BookService {
         return books.map(BookModel.mapModelToResponse);
     }
 
-    async getById(id: number): Promise<BookResponse | null> {
+    async getById(id: string): Promise<BookResponse | null> {
         const book = await BookModel.getById(this.dbSession, id);
         if (!book) {
             return null;
@@ -30,7 +30,7 @@ class BookService {
         return BookModel.mapModelToResponse(book);
     }
 
-    async update(id: number, request: BookRequest): Promise<BookResponse | null> {
+    async update(id: string, request: BookRequest): Promise<BookResponse | null> {
         const existingBook = await BookModel.getById(this.dbSession, id);
         if (!existingBook) {
             return null;

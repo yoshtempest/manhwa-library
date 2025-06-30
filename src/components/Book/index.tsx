@@ -11,7 +11,7 @@ async function Books() {
         <div key={book.id}>
           <h2 className={styles.Title}>{book.title}</h2>
           <BookImage
-            imagePath={book.image_path} // problema nessa linha
+            imagePath={book.image_path ?? ''} // fallback to empty string if undefined
             alt={`Capa do livro ${book.title}`}
           />
           <h2>{book.note}</h2>
