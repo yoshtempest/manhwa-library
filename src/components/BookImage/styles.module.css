@@ -1,7 +1,6 @@
 .image {
     display: flex;
     justify-content: center;
-    /* height: clamp(50%, 100%, 125%); */
     cursor: pointer;
 }
 
