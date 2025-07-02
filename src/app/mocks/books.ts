@@ -34,8 +34,8 @@ export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
         }
     ]
     // filtro para buscar os livros por nome
-    return bookTitle ?
-    allBooks.filter(book =>
-        book.title.toLowerCase().includes(book.title.toLowerCase())
-    ) : allBooks;
+    return bookTitle ? 
+        allBooks.filter(book =>
+            book.title.toLowerCase().includes(book.title.toLowerCase())
+        ) : allBooks;
 }

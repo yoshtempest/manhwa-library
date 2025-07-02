@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import BookImage from '@/components/BookImage';
+import BookRating from '@/components/BookNotes';
 import { getBooks } from '@/app/mocks/books';
 
 
@@ -14,7 +15,10 @@ async function Books() {
             imagePath={book.image_path ?? ''} // fallback to empty string if undefined
             alt={`Capa do livro ${book.title}`}
           />
-          <h2>{book.note}</h2>
+          <div className={styles.NotesContainer}>
+            <BookRating averageRating={book.note}/>
+            <h2 className={styles.Note}>{book.note}</h2>
+          </div>
         </div>
       ))}
       {/* <div>

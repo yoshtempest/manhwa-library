@@ -6,6 +6,7 @@
 }
 
 .image:hover {
+    opacity: 90%;
     transform: scale(1.05);
     transition: transform 0.1s ease-in-out;
 }
