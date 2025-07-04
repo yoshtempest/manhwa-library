@@ -7,10 +7,11 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    transition: transform 0.4s;
 }
 
 .image:hover {
     opacity: 90%;
     transform: scale(1.1);
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
