@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
-import BookImage from '@/components/BookImage';
-import BookRating from '@/components/BookNotes';
+import BookImage from '@/components/Book/BookImage';
+import BookRating from '@/components/Book/BookNotes';
 import { getBooks } from '@/app/mocks/books';
 
 
@@ -21,9 +21,6 @@ async function Books() {
           </div>
         </div>
       ))}
-      {/* <div>
-        <p> livro clicado e sua descrição,some tudo aqui e mantém apenas o livro clicado na posição em que o magic emperor está</p>
-      </div> */}
     </div>
   );
 }

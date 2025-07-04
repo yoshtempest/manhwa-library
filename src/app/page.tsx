@@ -1,4 +1,4 @@
-import Books from '@/components/Book'
+import Books from '@/components/Book/BookList'
 
 
 export default async function Home() {

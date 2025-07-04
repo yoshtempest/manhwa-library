@@ -10,6 +10,7 @@ export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
             title: "Magic Emperor",
             author: "Ye Xiao",
             genres: "Action, Adventure, Shounen",
+            genre_id: "1",
             description: "Zhuo Yifan era um imperador mágico ou poderia ser chamado de imperador demônio porque ele tinha um livro do imperador antigo chamado Livro dos Nove Segredos, ele foi alvo de todos os especialistas e foi traído e morto por seus alunos. Então sua alma entra e volta à vida em um servo da família chamado Zhuo Fan. Alguma magia demoníaca o impede, ele deve unir as memórias de criança e não pode ignorar a família e a amante a quem serve.",
             note: 4.5,
             image_path: IMAGES.magicEmperor.src
@@ -19,8 +20,9 @@ export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
             title: "Solo Leveling",
             author: "Chugong",
             genres: "Action, Fantasy",
+            genre_id: "2",
             description: "Em um mundo onde caçadores humanos que possuem habilidades mágicas devem lutar contra monstros mortais para proteger a raça humana de certa aniquilação, um caçador notoriamente fraco chamado Sung Jinwoo se encontra em uma luta aparentemente interminável pela sobrevivência. Um dia, depois de sobreviver por pouco a uma masmorra dupla esmagadoramente poderosa que quase acaba com todo o seu grupo, um programa misterioso chamado Sistema o escolhe como seu único jogador e, por sua vez, dá a ele a habilidade extremamente rara de subir de nível em força, possivelmente além de qualquer limites conhecidos. Jinwoo então parte em uma jornada enquanto luta contra todos os tipos de inimigos, tanto homens quanto monstros, para descobrir os segredos das masmorras e a verdadeira fonte de seus poderes.",
-            note: 4.5,
+            note: 5,
             image_path: IMAGES.soloLeveling.src
         },
         {
@@ -28,14 +30,14 @@ export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
             title: "Max-Level Newbie",
             author: "Maslow",
             genres: "Action, Fantasy",
+            genre_id: "3",
             description: "Jinhyuk, um viciado completo, foi o único a ter visto o final da [Torre dos Testes], mas à medida que a popularidade do jogo diminui, fica difícil manter a vida com o jogo. Jinhyuk quer terminar o jogo assim porque ele viu o final. Naquele mesmo dia, a [Torre dos Testes] se tornou uma realidade. Jinhyuk, que conhece todos os elementos do jogo, controla tudo mais rápido do que qualquer um! “Vou te mostrar o que é um profissional de verdade.”",
             note: 4.5,
             image_path: IMAGES.novatoDeNivelMaximo.src
         }
     ]
     // filtro para buscar os livros por nome
-    return bookTitle ? 
-        allBooks.filter(book =>
-            book.title.toLowerCase().includes(book.title.toLowerCase())
-        ) : allBooks;
+    return bookTitle
+        ? allBooks.filter(book => book.title.toLowerCase().includes(bookTitle.toLowerCase()))
+        : allBooks;
 }

@@ -13,7 +13,9 @@ const bookImage = ({
     alt
 } : Props) => {
     return (
-        <Image src={imagePath} width={100} height={100} layout="responsive" alt={alt} className={styles.image}/>
+        <div className={styles.Container}>
+            <Image src={imagePath} width={100} height={100} layout="responsive" alt={alt} className={styles.image}/>
+        </div>
     )
 };
 
