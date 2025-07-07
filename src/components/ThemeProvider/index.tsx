@@ -25,7 +25,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     // Se o usuário já escolheu um tema, usa o dele. Caso contrário, usa o do sistema
-    setTheme(storedTheme || (systemPrefersDark ? "light" : "dark"));
+    setTheme(storedTheme || (systemPrefersDark ? "dark" : "light"));
   }, []);
 
   // Sempre que o tema mudar: atualiza HTML e localStorage

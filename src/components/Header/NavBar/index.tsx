@@ -8,6 +8,7 @@ import { useTheme } from "@/components/ThemeProvider";
 
 const NavBar = () => {
     const { theme } = useTheme();
+    console.log("Current theme:", theme); // Verifique no console
     
     return (
         <div className={styles.Container}>
