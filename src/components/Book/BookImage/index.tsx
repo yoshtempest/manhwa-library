@@ -1,6 +1,6 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import styles from './styles.module.css';
-import Image from 'next/image';
+import Image from "next/image";
 
 
 interface Props {
@@ -14,7 +14,7 @@ const bookImage = ({
 } : Props) => {
     return (
         <div className={styles.Container}>
-            <Image src={imagePath} width={100} height={100} layout="responsive" alt={alt} className={styles.image}/>
+            <Image src={imagePath} width={100} height={300} layout='responsive' alt={alt} className={styles.image}/>
         </div>
     )
 };

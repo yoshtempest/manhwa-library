@@ -30,9 +30,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Sempre que o tema mudar: atualiza HTML e localStorage
   useEffect(() => {
+    console.log("Salvando tema no localStorage:", theme); // Debug
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("theme", theme); // Talvez seja aqui o problema pois não está apagando o tema anterior, causando um bug na cor da NavBar fazendo com que a mesma não percena a mudança de tema
   }, [theme]);
 
   const toggleTheme = () => {

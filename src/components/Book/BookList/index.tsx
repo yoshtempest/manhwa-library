@@ -17,7 +17,7 @@ async function Books() {
           />
           <div className={styles.NotesContainer}>
             <BookRating averageRating={book.note}/>
-            <h2 className={styles.Note}>{book.note}</h2>
+            <p className={styles.Note}>{book.note}</p>
           </div>
         </div>
       ))}
