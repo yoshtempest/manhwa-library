@@ -1,5 +1,5 @@
 import { SqliteDatabase } from "@/core/db";
-import BookModel from "@/models/book";
+import BookModel from "@/db/models/book";
 import { BookRequest, BookResponse } from "@/schemas/book";
 
 

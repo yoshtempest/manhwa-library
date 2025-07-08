@@ -1,6 +1,6 @@
 import { SqliteDatabase } from "@/core/db";
 import SecurityHandler from "@/core/security";
-import UserModel from "@/models/user";
+import UserModel from "@/db/models/user";
 import { UserRequest, UserLogin, UserResponse } from "@/schemas/user";
 
 
