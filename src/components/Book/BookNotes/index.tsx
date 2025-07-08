@@ -16,7 +16,7 @@ const BookRating: React.FC<Props> = ({ averageRating }) => {
             edit={false} // talvez devesse ser true para o usuário poder avaliar
             size={36} // tamanho em pixel creio eu
             activeColor="#ffee58" // cor ativa
-            color="#ffffff" // cor padrão
+            color="#f3f3f3" // cor padrão
             isHalf={true} // indica que pode não ser estrela cheia
             char="★"
         />
