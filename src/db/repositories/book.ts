@@ -1,5 +1,6 @@
 import { SqliteDatabase } from "@/core/db";
 import BookModel from "../models/book";
+import { bookIdGenerator } from "@/core/generator";
 import { BookRequest, BookResponse } from "@/schemas/book";
 import { GenreResponse } from "@/schemas/genre";
 
@@ -8,11 +9,12 @@ export default class BookRepository{
         private dbSession: SqliteDatabase
     ) {}
 
-        // Adiciona um novo book ao banco de dados.
+    // Adiciona um novo book ao banco de dados.
     async add(model: BookModel): Promise<BookModel> {
         const result = await this.dbSession.run(
             `INSERT INTO books
             (
+                id,
                 title,
                 author,
                 description,
@@ -21,8 +23,9 @@ export default class BookRepository{
                 created_at,
                 updated_at
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
             [
+                bookIdGenerator(),
                 model.title,
                 model.author,
                 model.description,
@@ -32,12 +35,12 @@ export default class BookRepository{
                 model.updated_at.toISOString()
             ]
         );
-        const bookId = result.lastID;
-        if (typeof bookId !== "string") {
-            throw new Error("Failed to retrieve the last inserted ID.");
-        }
+        // const bookId = result.lastID;
+        // if (typeof bookId !== "string") {
+        //     throw new Error("Failed to retrieve the last inserted ID.");
+        // }
         return new BookModel(
-            bookId,
+            model.id,
             model.title,
             model.author,
             model.description,

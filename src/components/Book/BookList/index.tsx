@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import BookImage from '@/components/Book/BookImage';
 import BookRating from '@/components/Book/BookNotes';
-import { getBooks } from '@/app/mocks/books';
+import { getBooks } from '@/mocks/books';
 
 
 async function Books() {
