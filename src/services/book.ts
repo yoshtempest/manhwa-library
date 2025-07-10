@@ -1,52 +1,55 @@
 import { SqliteDatabase } from "@/core/db";
-import BookModel from "@/db/models/book";
+import BookRepository from "@/db/repositories/book"
 import { BookRequest, BookResponse } from "@/schemas/book";
 
 
 class BookService {
-    private dbSession: SqliteDatabase;
+    private bookRepository: BookRepository;
 
     constructor(dbSession: SqliteDatabase) {
-        this.dbSession = dbSession;
+        this.bookRepository = new BookRepository(dbSession);
     }
     // esse toResponse e fromRequest me parece muito com o que eu fiz no UserService
     // mas eu não fiz isso no models/book né
     async add(request: BookRequest): Promise<BookResponse> {
-        const bookModel = BookModel.mapRequestToModel(request);
-        const newBook = await bookModel.add(this.dbSession);
-        return BookModel.mapModelToResponse(newBook);
+        const bookModel = BookRepository.mapRequestToModel(request);
+        const newBook = await this.bookRepository.add(bookModel);
+        return await this.bookRepository.mapModelToResponse(newBook);
     }
 
     async getAll(): Promise<BookResponse[]> {
-        const books = await BookModel.getAll(this.dbSession);
-        return books.map(BookModel.mapModelToResponse);
-    }
+        const books = await this.bookRepository.getAll();
+        const responses: BookResponse[] = [];
+        for (const book of books) {
+            responses.push(await this.bookRepository.mapModelToResponse(book));
+        }
+        return responses;    }
 
     async getById(id: string): Promise<BookResponse | null> {
-        const book = await BookModel.getById(this.dbSession, id);
+        const book = await this.bookRepository.getById(id);
         if (!book) {
             return null;
         }
-        return BookModel.mapModelToResponse(book);
+        return await this.bookRepository.mapModelToResponse(book);
     }
 
     async update(id: string, request: BookRequest): Promise<BookResponse | null> {
-        const existingBook = await BookModel.getById(this.dbSession, id);
+        const existingBook = await this.bookRepository.getById(id);
         if (!existingBook) {
             return null;
         }
-        Object.assign(existingBook, BookModel.mapRequestToModel(request));
-        const updatedBook = await existingBook.update(this.dbSession, id);
-        return BookModel.mapModelToResponse(updatedBook);
+        Object.assign(existingBook, BookRepository.mapRequestToModel(request));
+        await this.bookRepository.update(existingBook);
+        return await this.bookRepository.mapModelToResponse(existingBook);
     }
 
     async delete(id: string): Promise<boolean> {
-        const existingBook = await BookModel.getById(this.dbSession, id);
+        const existingBook = await this.bookRepository.getById(id);
         if (!existingBook) {
             return false;
         }
-        const result = await BookModel.delete(this.dbSession, id);
-        return result;
+        await this.bookRepository.delete(id);
+        return true;
     }
 }
 
