@@ -9,9 +9,10 @@ export default class BookRepository{
         private dbSession: SqliteDatabase
     ) {}
 
-    // Adiciona um novo book ao banco de dados.
+    /** Adiciona um novo livro ao banco de dados. */
     async add(model: BookModel): Promise<BookModel> {
-        const result = await this.dbSession.run(
+        const id = bookIdGenerator();
+        await this.dbSession.run(
             `INSERT INTO books
             (
                 id,
@@ -25,7 +26,7 @@ export default class BookRepository{
             )
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
             [
-                bookIdGenerator(),
+                id,
                 model.title,
                 model.author,
                 model.description,
@@ -35,10 +36,6 @@ export default class BookRepository{
                 model.updated_at.toISOString()
             ]
         );
-        // const bookId = result.lastID;
-        // if (typeof bookId !== "string") {
-        //     throw new Error("Failed to retrieve the last inserted ID.");
-        // }
         return new BookModel(
             model.id,
             model.title,
@@ -75,13 +72,16 @@ export default class BookRepository{
     }
 
     async delete(id: string): Promise<void> {
-        await this.dbSession.run(`DELETE FROM books WHERE id = ?`,
-        [id]);
+        await this.dbSession.run(
+            `DELETE FROM books WHERE id = ?`,
+            [id]
+        );
     }
 
     async getById(id: string): Promise<BookModel | null> {
         const row = await this.dbSession.get(
-            `SELECT * FROM books WHERE id = ?`, [id]
+            `SELECT * FROM books WHERE id = ?`, 
+            [id]
         );
         if (!row) return null;
         return BookRepository.mapRowToModel(row);
@@ -104,19 +104,6 @@ export default class BookRepository{
             request.image_path ? "string" : "",
             new Date(), // Define a data de criação como agora
             new Date() // Define a data de atualização como agora
-        );
-    }
-
-    static mapRowToModel(row: any): BookModel {
-        return new BookModel(
-            row.id,
-            row.title,
-            row.author,
-            row.description,
-            row.note || 0,
-            row.image_path,
-            new Date(row.created_at),
-            new Date(row.updated_at)
         );
     }
 
@@ -164,5 +151,18 @@ export default class BookRepository{
 
         return response;
 
+    }
+
+    static mapRowToModel(row: any): BookModel {
+        return new BookModel(
+            row.id,
+            row.title,
+            row.author,
+            row.description,
+            row.note || 0,
+            row.image_path,
+            new Date(row.created_at),
+            new Date(row.updated_at)
+        );
     }
 }

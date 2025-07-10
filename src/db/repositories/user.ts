@@ -7,8 +7,10 @@ export default class UserRepository {
     constructor(
         private dbSession: SqliteDatabase
     ) {}
-    // Método para adicionar um novo usuário ao banco de dados.
-    // Retorna uma instância de UserModel com o ID gerado.
+    /** 
+        - Método para adicionar um novo usuário ao banco de dados.
+        - Retorna uma instância de UserModel com o ID gerado.
+    */
     async add(model: UserModel): Promise<UserModel> {
         const id = userIdGenerator();
         await this.dbSession.run(
@@ -33,10 +35,6 @@ export default class UserRepository {
                 model.updated_at.toISOString()
             ]
         );
-        // const userId = result.lastID;
-        // if (typeof userId !== "string") {
-        //     throw new Error("Failed to retrieve the last inserted ID.");
-        // }
         return new UserModel(
             id,
             model.username,
@@ -47,8 +45,8 @@ export default class UserRepository {
             model.updated_at
         );
     }
-    // _atualiza os dados do usuário no banco de dados.
-    async update(model: UserModel): Promise<UserModel> {
+    /** atualiza os dados do usuário no banco de dados. */
+    async update(model: UserModel): Promise<void> {
         await this.dbSession.run(
             `
                 UPDATE users SET username = ?,
@@ -67,50 +65,50 @@ export default class UserRepository {
             ]
         );
     }
-    // Remove o usuário do banco de dados.
-    async delete(dbSession: SqliteDatabase): Promise<void> {
-        await dbSession.run(
+    /** Remove o usuário do banco de dados. */
+    async delete(id: string): Promise<void> {
+        await this.dbSession.run(
             `DELETE FROM users WHERE id = ?`,
-            [this.id]
+            [id]
         );
     }
-    // Busca um usuário pelo ID.
-    // Retorna uma instância de UserModel ou null se não encontrado.
-    static async getById(dbSession: SqliteDatabase, id: string): Promise<UserModel | null> {
-        const row = await dbSession.get(
+    /**
+        -  Busca um usuário pelo ID.
+        - Retorna uma instância de UserModel ou null se não encontrado. 
+    */
+    async getById(id: string): Promise<UserModel | null> {
+        const row = await this.dbSession.get(
             `SELECT * FROM users WHERE id = ?`,
             [id]
         );
         if (!row) {
             return null;
         }
-        return UserModel.mapRowToModel(row);
+        return UserRepository.mapRowToModel(row);
     }
-    // Retorna todos os usuários cadastrados no banco de dados.
-    static async getAll(dbSession: SqliteDatabase): Promise<UserModel[]> {
-        const rows = await dbSession.all(`SELECT * FROM users`);
-        return rows.map((row: any) => {
-            return this.mapRowToModel(row);
-        });
+    /** Retorna todos os usuários cadastrados no banco de dados. */
+    async getAll(): Promise<UserModel[]> {
+        const rows = await this.dbSession.all(`SELECT * FROM users`);
+        return rows.map((row: any) => UserRepository.mapRowToModel(row));
     }
     // A única diferença entre getByEmail e getById é o critério de busca.
-    static async getByEmail(dbSession: SqliteDatabase, email: string): Promise<UserModel | null> {
-        const row = await dbSession.get(
+    async getByEmail(email: string): Promise<UserModel | null> {
+        const row = await this.dbSession.get(
             `SELECT * FROM users WHERE email = ?`,
             [email]
         );
         if (!row) {
             return null;
         }
-        return this.mapRowToModel(row);
+        return UserRepository.mapRowToModel(row);
     }
-    /*
-        Converte um userRequest em um UserModel.
-        Define o usuário como ativo e define as datas de criação e atualização.
+    /**
+        - Converte um userRequest em um UserModel.
+        - Define o usuário como ativo e define as datas de criação e atualização.
     */
     static mapRequestToModel(request: UserRequest): UserModel {
         return new UserModel(
-            idGenerator(), // Gera um novo ID para o usuário
+            "", // Gera um novo ID para o usuário
             request.username,
             request.email,
             request.password,
@@ -119,9 +117,9 @@ export default class UserRepository {
             new Date() 
         );
     }
-    /*
-        Converte um UserModel em um userResponse. Basicamente, converte um modelo em uma resposta.
-        Formata as datas para string ISO.
+    /**
+        - Converte um UserModel em um userResponse. Basicamente, converte um modelo em uma resposta.
+        - Formata as datas para string ISO.
     */
     static mapModelToResponse(model: UserModel): UserResponse {
         return {
