@@ -1,6 +1,6 @@
 import { SqliteDatabase } from "@/core/db";
 import SecurityHandler from "@/core/security";
-import UserModel from "@/db/models/user";
+import UserRepository from "@/db/repositories/user";
 import { UserRequest, UserLogin, UserResponse } from "@/schemas/user";
 
 
@@ -9,11 +9,11 @@ import { UserRequest, UserLogin, UserResponse } from "@/schemas/user";
     Realiza cadastro, autenticação e mapeamento de dados entre modelos e respostas.
 */
 class UserService {
-    private dbSession: SqliteDatabase;
+    private userRepository: UserRepository;
 
     // Recebe uma sessão ativa do banco de dados para executar as operações.
     constructor(dbSession: SqliteDatabase) {
-        this.dbSession = dbSession;
+        this.userRepository = new UserRepository(dbSession);
     }
     /**
      * Verifica se o usuário já existe no banco de dados.
@@ -24,17 +24,17 @@ class UserService {
     */
     async add(request: UserRequest): Promise<UserResponse> {
         
-        const userModel = UserModel.mapRequestToModel(request);
+        const userModel = UserRepository.mapRequestToModel(request);
 
         userModel.password = await SecurityHandler.hashPassword(userModel.password);
 
-        const onDB = await UserModel.getByEmail(this.dbSession, userModel.email);
+        const onDB = await this.userRepository.getByEmail(userModel.email);
         if (onDB) {
             throw new Error("User already exists");
         }
-        const newUser = await userModel.add(this.dbSession);
+        const newUser = await this.userRepository.add(userModel);
         
-        return UserModel.mapModelToResponse(newUser);
+        return UserRepository.mapModelToResponse(newUser);
         }
 
     /*
@@ -45,22 +45,22 @@ class UserService {
     */
     async login(request: UserLogin): Promise<UserResponse | null> {
         
-        const onDB = await UserModel.getByEmail(this.dbSession, request.email);
+        const onDB = await this.userRepository.getByEmail(request.email);
         if (!onDB) {
             return null;
         }
         if (! (await SecurityHandler.verifyPassword(request.password, onDB.password))) {
             return null;
         }
-        return UserModel.mapModelToResponse(onDB);
+        return UserRepository.mapModelToResponse(onDB);
     }
 
     async getUserById(id: string): Promise<UserResponse | null> {
-        const user = await UserModel.getById(this.dbSession, id);
+        const user = await this.userRepository.getById(id);
         if (!user) {
             return null;
         }
-        return UserModel.mapModelToResponse(user);
+        return UserRepository.mapModelToResponse(user);
     }
 }
 
