@@ -96,7 +96,7 @@ export default class BookRepository{
         // Converte um bookRequest em BookModel
     static mapRequestToModel(request: BookRequest): BookModel {
         return new BookModel(
-            "", // ID será gerado pelo banco de dados
+            bookIdGenerator(),
             request.title,
             request.author,
             request.description,
