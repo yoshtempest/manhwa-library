@@ -16,11 +16,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1em;
 }
 
 .Note {
-    font-size: 1.2em;
+    font-size: 1.4em;
+}
+
+.Favorite {
+    cursor: pointer;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid var(--foreground);
+    color: var(--foreground);
 }
 
 @media (max-width: 450px) {

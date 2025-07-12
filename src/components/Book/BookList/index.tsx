@@ -19,6 +19,9 @@ async function Books() {
             <BookRating averageRating={book.note}/>
             <p className={styles.Note}>{book.note}</p>
           </div>
+          <p className={styles.Favorite}>
+            {book.is_favorite ? '❤️' : '🤍'} {book.is_favorite ? 'Favoritado' : 'Favoritar'}
+          </p>
         </div>
       ))}
     </div>
