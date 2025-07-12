@@ -16,7 +16,7 @@ export default class FavoriteRepository{
                 book_id,
                 created_at,
             )
-            VALUES (?, ?, ?, ?)`,
+            VALUES (?, ?, ?)`,
             [
                 model.user_id,
                 model.book_id,

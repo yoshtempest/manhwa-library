@@ -3,6 +3,7 @@ import BookModel from "../models/book";
 import { bookIdGenerator } from "@/core/generator";
 import { BookRequest, BookResponse } from "@/schemas/book";
 import { GenreResponse } from "@/schemas/genre";
+import { LikeResponse } from "@/schemas/like";
 
 export default class BookRepository{
     constructor(
@@ -138,6 +139,27 @@ export default class BookRepository{
             });
         }
 
+        const likes = await this.dbSession.all(
+            `SELECT * FROM book_likes WHERE book_id = ? AND user_id = ?`, 
+            [model.id, user_id]
+        );
+        let count = 0;
+        if (likes && likes.length > 0) {
+            count = likes[0].count;
+        }
+
+        const likesResponse: Array<LikeResponse> = []
+
+        for(const like of likes) {
+            likesResponse.push({
+                id: like.id,
+                book_id: like.book_id,
+                user_id: like.user_id,
+                count: like.count,
+                created_at: new Date(like.created_at).toISOString()
+            });
+        }
+
         const response: BookResponse = {
             id: model.id,
             title: model.title,
@@ -148,9 +170,7 @@ export default class BookRepository{
             note: model.note,
             image_path: model.image_path
         };
-
         return response;
-
     }
 
     static mapRowToModel(row: any): BookModel {

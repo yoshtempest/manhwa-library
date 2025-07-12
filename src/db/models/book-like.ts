@@ -3,6 +3,7 @@ export default class BookLikeModel {
         public id: string,
         public book_id: string,
         public user_id: string,
+        public count: number,
         public created_at: Date = new Date(),
     ) {}
 
@@ -11,6 +12,7 @@ export default class BookLikeModel {
             id: this.id,
             book_id: this.book_id,
             user_id: this.user_id,
+            count: this.count,
             created_at: this.created_at.toISOString(),
         };
     }
@@ -20,6 +22,7 @@ export default class BookLikeModel {
             json.id,
             json.book_id,
             json.user_id,
+            json.count,
             new Date(json.created_at),
         );
     }
