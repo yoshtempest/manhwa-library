@@ -1,9 +1,9 @@
-import { SqliteDatabase } from "@/core/db";
+import { SqliteDatabase } from "@/backend/core/db";
 import BookModel from "../models/book";
-import { bookIdGenerator } from "@/core/generator";
-import { BookRequest, BookResponse } from "@/schemas/book";
-import { GenreResponse } from "@/schemas/genre";
-import { LikeResponse } from "@/schemas/like";
+import { bookIdGenerator } from "@/backend/core/generator";
+import { BookRequest, BookResponse } from "@/backend/schemas/book";
+import { GenreResponse } from "@/backend/schemas/genre";
+import { LikeResponse } from "@/backend/schemas/like";
 
 export default class BookRepository{
     constructor(

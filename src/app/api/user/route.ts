@@ -1,6 +1,6 @@
-import SecurityHandler from "@/core/security";
-import db from "@/core/db";
-import UserService from "@/services/user";
+import SecurityHandler from "@/backend/core/security";
+import db from "@/backend/core/db";
+import UserService from "@/backend/services/user";
 
 export async function GET(request: Request) {
     

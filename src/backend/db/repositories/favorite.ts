@@ -1,4 +1,4 @@
-import { SqliteDatabase } from "@/core/db";
+import { SqliteDatabase } from "@/backend/core/db";
 import FavoriteModel from "../models/favorite";
 
 

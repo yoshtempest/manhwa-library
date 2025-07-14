@@ -1,6 +1,6 @@
-import { SqliteDatabase } from "@/core/db";
-import { userIdGenerator } from "@/core/generator";
-import { UserRequest, UserResponse } from "@/schemas/user";
+import { SqliteDatabase } from "@/backend/core/db";
+import { userIdGenerator } from "@/backend/core/generator";
+import { UserRequest, UserResponse } from "@/backend/schemas/user";
 import UserModel from "../models/user";
 
 export default class UserRepository {

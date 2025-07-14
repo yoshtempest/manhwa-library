@@ -1,4 +1,4 @@
-import { idGenerator } from "@/core/generator";
+import { idGenerator } from "@/backend/core/generator";
 
 
 // Representa um usuário e fornece métodos para manipulação no banco de dados.

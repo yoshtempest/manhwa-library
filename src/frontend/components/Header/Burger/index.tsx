@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import styles from './styles.module.css';
 import ICONS from '@/assets/index';
-import Icon from '@/components/Icon';
+import Icon from '@/frontend/components/Icon';
 import Link from 'next/link';
 
 

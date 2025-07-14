@@ -1,6 +1,6 @@
-import { SqliteDatabase } from "@/core/db";
-import BookRepository from "@/db/repositories/book"
-import { BookRequest, BookResponse } from "@/schemas/book";
+import { SqliteDatabase } from "@/backend/core/db";
+import BookRepository from "@/backend/db/repositories/book"
+import { BookRequest, BookResponse } from "@/backend/schemas/book";
 
 
 class BookService {

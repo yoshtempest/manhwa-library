@@ -1,9 +1,9 @@
 "use client";
 
 import styles from './styles.module.css'
-import Icon from "@/components/Icon";
+import Icon from "@/frontend/components/Icon";
 import ICONS from "@/assets/index"
-import { useTheme } from "@/components/ThemeProvider";
+import { useTheme } from "@/frontend/components/ThemeProvider";
 
 
 const NavBar = () => {

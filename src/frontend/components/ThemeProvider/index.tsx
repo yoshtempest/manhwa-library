@@ -1,7 +1,7 @@
 "use client"; // Indica que é um componente do lado do cliente (Next.js)
 
 import styles from './styles.module.css'
-import Icon from "@/components/Icon";
+import Icon from "@/frontend/components/Icon";
 import ICONS from "@/assets/index";
 import { useEffect, useState, createContext, useContext } from "react";
 

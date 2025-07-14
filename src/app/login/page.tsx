@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "../register/styles.module.css";
-import Input from "@/components/Input";
+import Input from "@/frontend/components/Input";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 

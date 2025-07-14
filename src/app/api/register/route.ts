@@ -1,6 +1,6 @@
-import db from "@/core/db";
-import UserService from "@/services/user";
-import { UserRequest } from "@/schemas/user";
+import db from "@/backend/core/db";
+import UserService from "@/backend/services/user";
+import { UserRequest } from "@/backend/schemas/user";
 
 
 /**

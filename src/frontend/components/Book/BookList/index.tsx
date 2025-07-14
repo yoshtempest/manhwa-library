@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
-import BookImage from '@/components/Book/BookImage';
-import BookRating from '@/components/Book/BookNotes';
+import BookImage from '@/frontend/components/Book/BookImage';
+import BookRating from '@/frontend/components/Book/BookNotes';
 import { getBooks } from '@/mocks/books';
 
 
