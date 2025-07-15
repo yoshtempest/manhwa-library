@@ -4,17 +4,36 @@ import styles from "../register/styles.module.css";
 import Input from "@/frontend/components/Input";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
+import Link from "next/link";
+import { useLogin } from "@/frontend/hooks/user";
 
 
 const Login = () => {
     const router = useRouter();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [loginData, setLoginData] = useState({
+        email: '',
+        password: ''
+    });
+    const login = useLogin();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const setEmail = (email: string) => {
+        setLoginData(prev => ({ ...prev, email }));
+    };
+    const setPassword = (password: string) => {
+        setLoginData(prev => ({ ...prev, password }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (email && password) {
-            return router.push('/')
+        if (loginData.email && loginData.password) {
+            try {
+                const user = await login(loginData.email, loginData.password);
+                if (user) {
+                    router.push('/');
+                }
+            } catch (error) {
+                alert('Erro ao fazer login: ' + error);
+            }
         }
     } 
     return (
@@ -26,7 +45,7 @@ const Login = () => {
                     <Input
                         placeholder="seu@email.com"
                         type="email"
-                        value={email}
+                        value={loginData.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 
@@ -34,12 +53,12 @@ const Login = () => {
                     <Input 
                         placeholder="senhaSegura123"
                         type="password"
-                        value={password}
+                        value={loginData.password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
                     <p className={styles.Text}> Ainda não possui uma conta?
-                        <a href="/register" className={styles.Link}> Cadastrar-se</a>
+                        <Link href="/register" className={styles.Link}> Cadastrar-se</Link>
                     </p>
 
                 <button type="submit" className={styles.Submit}>Entrar</button>

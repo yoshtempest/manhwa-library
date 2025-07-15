@@ -1,4 +1,4 @@
-import { BookResponse } from '@/backend/schemas/book';
+import { BookResponse } from '@/schemas/book';
 import { IMAGES } from '@/uploads';
 
 

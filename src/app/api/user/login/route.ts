@@ -1,6 +1,6 @@
 import db from "@/backend/core/db";
 import UserService from "@/backend/services/user";
-import { UserLogin } from "@/backend/schemas/user";
+import { UserLogin } from "@/schemas/user";
 
 /**
   Função responsável por autenticar um usuário.

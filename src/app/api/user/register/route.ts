@@ -1,6 +1,6 @@
 import db from "@/backend/core/db";
 import UserService from "@/backend/services/user";
-import { UserRequest } from "@/backend/schemas/user";
+import { UserRequest } from "@/schemas/user";
 
 
 /**

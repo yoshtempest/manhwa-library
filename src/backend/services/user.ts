@@ -1,7 +1,7 @@
 import { SqliteDatabase } from "@/backend/core/db";
 import SecurityHandler from "@/backend/core/security";
 import UserRepository from "@/backend/db/repositories/user";
-import { UserRequest, UserLogin, UserResponse, TokenResponse } from "@/backend/schemas/user";
+import { UserRequest, UserLogin, UserResponse, TokenResponse } from "@/schemas/user";
 
 
 /*
