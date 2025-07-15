@@ -22,7 +22,8 @@ export default class SecurityHandler {
         try {
             const decoded = jwt.verify(token, JWT_SECRET) as { id?: string };
             return decoded.id ?? null;
-        } catch {
+        }
+        catch {
             return null;
         }
     }

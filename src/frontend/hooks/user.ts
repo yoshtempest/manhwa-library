@@ -1,5 +1,5 @@
-import { UserResponse } from "@/schemas/user";
 import UserService from "@/frontend/services/user";
+import { UserResponse } from "@/schemas/user";
 
 export function useLogin() {
     const login = async (email: string, password: string): Promise<UserResponse> => {

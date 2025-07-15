@@ -2,9 +2,9 @@
 
 import styles from "../register/styles.module.css";
 import Input from "@/frontend/components/Input";
+import Link from "next/link";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
-import Link from "next/link";
 import { useLogin } from "@/frontend/hooks/user";
 
 
@@ -31,7 +31,8 @@ const Login = () => {
                 if (user) {
                     router.push('/');
                 }
-            } catch (error) {
+            }
+            catch (error) {
                 alert('Erro ao fazer login: ' + error);
             }
         }

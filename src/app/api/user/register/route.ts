@@ -38,7 +38,8 @@ export async function POST (request: Request): Promise<Response> {
                     "Content-Type": "application/json",
                 },
             });
-        } catch (error: any) {
+        }
+        catch (error: any) {
             // Se o erro for devido a "usuário já existente", retorna 409
             if (error.message === "User already exists") {
                 return new Response(JSON.stringify({ error: "User already exists" }), {
@@ -48,7 +49,8 @@ export async function POST (request: Request): Promise<Response> {
                     },
             })
         }}
-    }catch (error) {
+    }
+    catch (error) {
         return new Response(JSON.stringify({ error: "Internal server error" }), {
             status: 500,
             headers: {

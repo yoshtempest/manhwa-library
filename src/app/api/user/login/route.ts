@@ -34,7 +34,8 @@ export async function POST(request: Request): Promise<Response> {
                 "Content-Type": "application/json",
             },
         });
-    } catch (error) {
+    }
+    catch (error) {
         // Tratamento de erros inesperados
         return new Response(JSON.stringify({ error: error }), {
             status: 400,

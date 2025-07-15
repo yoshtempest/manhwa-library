@@ -1,5 +1,5 @@
+import FavoriteModel from "@/backend/db/models/favorite";
 import { SqliteDatabase } from "@/backend/core/db";
-import FavoriteModel from "../models/favorite";
 
 
 export default class FavoriteRepository{

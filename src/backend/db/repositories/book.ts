@@ -1,5 +1,5 @@
+import BookModel from "@/backend/db/models/book";
 import { SqliteDatabase } from "@/backend/core/db";
-import BookModel from "../models/book";
 import { bookIdGenerator } from "@/backend/core/generator";
 import { BookRequest, BookResponse } from "@/schemas/book";
 import { GenreResponse } from "@/schemas/genre";

@@ -1,9 +1,9 @@
 "use client";
 
-import { useLogin, useRegister } from "@/frontend/hooks/user";
 import styles from "./styles.module.css";
 import Input from "@/frontend/components/Input";
 import Link from "next/link";
+import { useRegister } from "@/frontend/hooks/user";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 
@@ -39,7 +39,8 @@ const Register = () => {
                 if (user) {
                     router.push('/');
                 }
-            }catch (error) {
+            }
+            catch (error) {
                 alert('Erro ao registrar usuário: ' + error);
             }
         }
