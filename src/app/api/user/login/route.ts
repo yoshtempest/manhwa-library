@@ -1,7 +1,6 @@
 import db from "@/backend/core/db";
 import UserService from "@/backend/services/user";
 import { UserLogin } from "@/backend/schemas/user";
-import SecurityHandler from "@/backend/core/security";
 
 /**
   Função responsável por autenticar um usuário.
@@ -28,21 +27,8 @@ export async function POST(request: Request): Promise<Response> {
         const response = await service.login(login);
 
         // Se não encontrar usuário ou a senha for inválida, retorna o erro 401
-        if (!response) {
-            return new Response(JSON.stringify({ error: "Invalid credentials" }), {
-                status: 401,
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-        }
-
         // Retorna os dados do usuário autenticado
-        return new Response(JSON.stringify({
-            user: response,
-            // Gera um token JWT com validade de 1 hora
-            token: SecurityHandler.generateTokenFromId(String(response.id)),
-        }), {
+        return new Response(JSON.stringify(response), {
             status: 200,
             headers: {
                 "Content-Type": "application/json",
@@ -50,8 +36,8 @@ export async function POST(request: Request): Promise<Response> {
         });
     } catch (error) {
         // Tratamento de erros inesperados
-        return new Response(JSON.stringify({ error: "Internal server error" }), {
-            status: 500,
+        return new Response(JSON.stringify({ error: error }), {
+            status: 400,
             headers: {
                 "Content-Type": "application/json",
             },

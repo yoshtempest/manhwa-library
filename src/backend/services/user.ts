@@ -1,7 +1,7 @@
 import { SqliteDatabase } from "@/backend/core/db";
 import SecurityHandler from "@/backend/core/security";
 import UserRepository from "@/backend/db/repositories/user";
-import { UserRequest, UserLogin, UserResponse } from "@/backend/schemas/user";
+import { UserRequest, UserLogin, UserResponse, TokenResponse } from "@/backend/schemas/user";
 
 
 /*
@@ -37,22 +37,27 @@ class UserService {
         return UserRepository.mapModelToResponse(newUser);
         }
 
-    /*
-        Realiza o login do usuário.
-        - Verifica se o usuário existe e se a senha está correta.
-        - Se tudo estiver correto, retorna os dados do usuário.
-        - Se não, retorna null.
+    /**Make user login if the credentials are correct and return user data with token 
+     * @param request - User login credentials.
+     * @returns TokenResponse containing the token and user data.
+     * @throws Error if user not found or password is incorrect.
     */
-    async login(request: UserLogin): Promise<UserResponse | null> {
+    async login(request: UserLogin): Promise<TokenResponse> {
         
         const onDB = await this.userRepository.getByEmail(request.email);
         if (!onDB) {
-            return null;
+            throw new Error("User not found");
         }
         if (! (await SecurityHandler.verifyPassword(request.password, onDB.password))) {
-            return null;
+            throw new Error("email or password is incorrect");
         }
-        return UserRepository.mapModelToResponse(onDB);
+        const user = UserRepository.mapModelToResponse(onDB);
+        const token = SecurityHandler.generateTokenFromId(user.id);
+
+        return {
+            token,
+            user
+        };
     }
 
     async getUserById(id: string): Promise<UserResponse | null> {
