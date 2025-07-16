@@ -46,5 +46,4 @@ export async function GET(request: Request) {
             "Content-Type": "application/json",
         },
     });
-
 }

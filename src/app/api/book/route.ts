@@ -30,4 +30,20 @@ export async function GET(request: Request) {
     const service = new BookService(await db.getSession());
 
     const book = await service.getBookById(bookId);
+
+    if (!book) {
+        return new Response(JSON.stringify({ error: "Book not found" }), {
+            status: 404,
+            headers: {
+                "Content-Type" : "application/json",
+            },
+        });
+    }
+
+    return new Response(JSON.stringify(book), {
+        status: 200,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
 }
