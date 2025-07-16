@@ -16,7 +16,7 @@ export interface BookRequest {
     title: string;
     author: string;
     description: string;
-    note: number; // Imagino que a nota não é opcional, pois sempre irá retornar um número entre 0 e 5(estrelas)
+    note: number;
     image_path: string | StaticImport;
     likes: Array<number>;
     genres: Array<string>; // Array de IDs de gêneros
