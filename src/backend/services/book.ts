@@ -17,16 +17,16 @@ class BookService {
         return await this.bookRepository.mapModelToResponse(newBook);
     }
 
-    async getAll(): Promise<BookResponse[]> {
-        const books = await this.bookRepository.getAll();
+    async getAllBooks(): Promise<BookResponse[]> {
+        const books = await this.bookRepository.getAllBooks();
         const responses: BookResponse[] = [];
         for (const book of books) {
             responses.push(await this.bookRepository.mapModelToResponse(book));
         }
         return responses;    }
 
-    async getById(id: string): Promise<BookResponse | null> {
-        const book = await this.bookRepository.getById(id);
+    async getBookById(id: string): Promise<BookResponse | null> {
+        const book = await this.bookRepository.getBookById(id);
         if (!book) {
             return null;
         }
@@ -34,7 +34,7 @@ class BookService {
     }
 
     async update(id: string, request: BookRequest): Promise<BookResponse | null> {
-        const existingBook = await this.bookRepository.getById(id);
+        const existingBook = await this.bookRepository.getBookById(id);
         if (!existingBook) {
             return null;
         }
@@ -44,7 +44,7 @@ class BookService {
     }
 
     async delete(id: string): Promise<boolean> {
-        const existingBook = await this.bookRepository.getById(id);
+        const existingBook = await this.bookRepository.getBookById(id);
         if (!existingBook) {
             return false;
         }

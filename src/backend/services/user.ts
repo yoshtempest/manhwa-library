@@ -28,7 +28,7 @@ class UserService {
 
         userModel.password = await SecurityHandler.hashPassword(userModel.password);
 
-        const onDB = await this.userRepository.getByEmail(userModel.email);
+        const onDB = await this.userRepository.getUserByEmail(userModel.email);
         if (onDB) {
             throw new Error("User already exists");
         }
@@ -44,7 +44,7 @@ class UserService {
     */
     async login(request: UserLogin): Promise<TokenResponse> {
         
-        const onDB = await this.userRepository.getByEmail(request.email);
+        const onDB = await this.userRepository.getUserByEmail(request.email);
         if (!onDB) {
             throw new Error("User not found");
         }
@@ -61,7 +61,7 @@ class UserService {
     }
 
     async getUserById(id: string): Promise<UserResponse | null> {
-        const user = await this.userRepository.getById(id);
+        const user = await this.userRepository.getUserById(id);
         if (!user) {
             return null;
         }

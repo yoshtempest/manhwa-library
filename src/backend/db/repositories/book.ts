@@ -79,7 +79,7 @@ export default class BookRepository{
         );
     }
 
-    async getById(id: string): Promise<BookModel | null> {
+    async getBookById(id: string): Promise<BookModel | null> {
         const row = await this.dbSession.get(
             `SELECT * FROM books WHERE id = ?`, 
             [id]
@@ -89,7 +89,7 @@ export default class BookRepository{
     }
 
     // Retorna todos os books
-    async getAll(): Promise<BookModel[]> {
+    async getAllBooks(): Promise<BookModel[]> {
         const rows = await this.dbSession.all(`SELECT * FROM books`);
         return rows.map((row: any) => BookRepository.mapRowToModel(row));
     }

@@ -77,7 +77,7 @@ export default class UserRepository {
         -  Busca um usuário pelo ID.
         - Retorna uma instância de UserModel ou null se não encontrado. 
     */
-    async getById(id: string): Promise<UserModel | null> {
+    async getUserById(id: string): Promise<UserModel | null> {
         const row = await this.dbSession.get(
             `SELECT * FROM users WHERE id = ?`,
             [id]
@@ -88,12 +88,12 @@ export default class UserRepository {
         return UserRepository.mapRowToModel(row);
     }
     /** Retorna todos os usuários cadastrados no banco de dados. */
-    async getAll(): Promise<UserModel[]> {
+    async getAllUsers(): Promise<UserModel[]> {
         const rows = await this.dbSession.all(`SELECT * FROM users`);
         return rows.map((row: any) => UserRepository.mapRowToModel(row));
     }
     // A única diferença entre getByEmail e getById é o critério de busca.
-    async getByEmail(email: string): Promise<UserModel | null> {
+    async getUserByEmail(email: string): Promise<UserModel | null> {
         const row = await this.dbSession.get(
             `SELECT * FROM users WHERE email = ?`,
             [email]
