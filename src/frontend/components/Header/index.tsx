@@ -11,7 +11,7 @@ const Header = () => {
                 <Burger />
             </div>
             <div className={styles.LogoContainer}>
-                <Image src={IMAGES.logo} alt={'Logo'} />
+                <Image className={styles.Logo} src={IMAGES.logo} alt={'Logo'}/>
                 <p className={styles.Title}>Aether Library</p>
             </div>
             {/* <div className={styles.NavBarContainer}>

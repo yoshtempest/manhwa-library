@@ -5,7 +5,7 @@
     justify-content: center;
     width: 35vw;
     height: 90vh;
-    margin-left: 10vw;
+    margin: 10vh 0vw 10vh 10vw;
     border-radius: 30px;
     box-shadow: 0 1px 8px 0px var(--foreground);
 }
@@ -27,7 +27,6 @@
   align-self: center;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   text-align: center;
   width: 24vw;
   height: 7vh;
@@ -43,4 +42,12 @@
 
 .Text {
   text-align: end;
+}
+
+.horizontalContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }

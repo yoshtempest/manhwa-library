@@ -41,29 +41,37 @@ const Login = () => {
         <div className={styles.Container}>
             <h1 className={styles.Title}>Login</h1>
             <form className={styles.Form} onSubmit={handleSubmit}>
+                <label htmlFor="email"></label>
+                <Input
+                    placeholder="Email"
+                    type="email"
+                    value={loginData.email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            
+                <label htmlFor="password"></label>
+                <Input 
+                    placeholder="Senha"
+                    type="password"
+                    value={loginData.password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
 
-                    <label htmlFor="email"></label>
-                    <Input
-                        placeholder="Email"
-                        type="email"
-                        value={loginData.email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                
-                    <label htmlFor="password"></label>
-                    <Input 
-                        placeholder="Senha"
-                        type="password"
-                        value={loginData.password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-
-                    <p className={styles.Text}> Ainda não possui uma conta?
-                        <Link href="/register" className={styles.Link}> Cadastrar-se</Link>
-                    </p>
+                <p className={styles.Text}> Ainda não possui uma conta?
+                    <Link href="/register" className={styles.Link}> Cadastrar-se</Link>
+                </p>
 
                 <button type="submit" className={styles.Submit}>Entrar</button>
+                <div className={styles.horizontalContainer}>
+                    <hr />
+                    <h3>Ou Entrar Com</h3>
+                    <hr />
+                </div>
 
+                <button type="submit" className={styles.Submit}
+                    onClick={() => router.push('/auth/google')}>
+                    Google
+                </button>
             </form>
         </div>
     );

@@ -42,7 +42,7 @@ function Books() {
             <BookRating averageRating={book.note}/>
             <p className={styles.Note}>{book.note}</p>
           </div>
-
+          
           <p className={styles.Favorite}
             onClick={() => toggleFavorite(book.id)}>
             {book.is_favorite ? '❤️ Favoritado' : '🤍 Favoritar'}
