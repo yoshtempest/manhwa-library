@@ -27,7 +27,6 @@
   align-self: center;
   align-items: center;
   justify-content: center;
-  text-align: center;
   width: 24vw;
   height: 7vh;
   font-size: var(--font-size-intermediate);
@@ -38,10 +37,11 @@
 
 .Link {
   color: var(--link-color);
+  text-align: right;
 }
 
 .Text {
-  text-align: end;
+  text-align: center;
 }
 
 .horizontalContainer {
@@ -50,4 +50,17 @@
   align-items: center;
   justify-content: center;
   gap: 1em;
+}
+
+.Google {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 28vw;
+  height: 7vh;
+  font-size: var(--font-size-intermediate);
+  color: var(--foreground);
+  background-color: var(--background);
+  border: 2px solid var(--gray)
 }

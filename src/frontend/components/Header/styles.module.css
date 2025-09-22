@@ -2,7 +2,7 @@
 
 .Container {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 0.95fr auto;
     align-items: center;
     width: 100vw;
     height: 14vh;
@@ -35,3 +35,6 @@
     margin-left: 10px;
 }
 
+.NeedHelp {
+    color: #6D3AA1;
+}

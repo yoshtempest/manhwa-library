@@ -3,6 +3,8 @@
 import styles from "../register/styles.module.css";
 import Input from "@/frontend/components/Input";
 import Link from "next/link";
+import Image from "next/image";
+import { IMAGES } from "@/uploads";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { useLogin } from "@/frontend/hooks/user";
@@ -56,10 +58,7 @@ const Login = () => {
                     value={loginData.password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-
-                <p className={styles.Text}> Ainda não possui uma conta?
-                    <Link href="/register" className={styles.Link}> Cadastrar-se</Link>
-                </p>
+                <Link href="/register" className={styles.Link}>Esqueci Minha Senha</Link>
 
                 <button type="submit" className={styles.Submit}>Entrar</button>
                 <div className={styles.horizontalContainer}>
@@ -67,11 +66,14 @@ const Login = () => {
                     <h3>Ou Entrar Com</h3>
                     <hr />
                 </div>
-
-                <button type="submit" className={styles.Submit}
+                <button type="submit" className={styles.Google}
                     onClick={() => router.push('/auth/google')}>
+                    <Image src={IMAGES.google} alt="Google Logo" width={30} height={30}/>
                     Google
                 </button>
+                <p className={styles.Text}> Ainda não possui uma conta?
+                    <Link href="/register" className={styles.Link}> Cadastrar-se</Link>
+                </p>
             </form>
         </div>
     );
