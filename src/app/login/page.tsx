@@ -42,17 +42,17 @@ const Login = () => {
             <h1 className={styles.Title}>Login</h1>
             <form className={styles.Form} onSubmit={handleSubmit}>
 
-                    <label htmlFor="email">E-mail:</label>
+                    <label htmlFor="email"></label>
                     <Input
-                        placeholder="seu@email.com"
+                        placeholder="Email"
                         type="email"
                         value={loginData.email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password"></label>
                     <Input 
-                        placeholder="senhaSegura123"
+                        placeholder="Senha"
                         type="password"
                         value={loginData.password}
                         onChange={(e) => setPassword(e.target.value)}

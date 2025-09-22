@@ -1,20 +1,16 @@
 .Input {
-    font-size: clamp(1rem, 1.3rem, 1.5rem); /* Tamanho responsivo */
+    font-size: var(--font-size-medium);
     padding-left: 0.7em;
     padding-right: 0.7em;
-    width: clamp(25vw, 300px, 600px);
-    height: 5vh;
+    width: 31vw;
+    height: 8vh;
     color: var(--foreground);
     outline: none;
     background: transparent;
-    border-radius: 25px;
-    box-shadow: 
-        0 2px 10px rgba(46, 8, 84, 1),
-        0 4px 6px -1px rgba(0, 0, 0, 1);
+    border: 1px solid var(--gray)
 }
 
 .Input::placeholder {
-    color: var(--foreground);
-    font-size: clamp(0.9rem, 1.1rem, 1.4rem); /* Placeholder responsivo */
-    opacity: 0.7;
+    color: var(--gray);
+    font-size: var(--font-size-medium);
 }

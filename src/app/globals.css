@@ -1,11 +1,34 @@
 @import "tailwindcss";
 
 /* ===== VARIÁVEIS DE TEMA ===== */
+:root {
+
+  /* Fontes */
+  --font-family-inria-serif: var(--font-inria-serif);
+  --font-family-inter: var(--font-inter);
+
+  /*Tamanho das Fontes*/
+  --font-size-title: 64px;
+  --font-size-medium: 32px;
+  --font-size-intermediate: 24px;
+  --font-size-small: 16px;
+
+  /*Cor Principal*/
+  --main-color: #2E0854;
+  --gray: #808080;
+
+  /*Cores poppups*/
+  --fail: #FF2C2C;
+  --sucess:  #32CD32;
+  
+
+  /*Cores Links*/
+  --link-color:#183ABA;
+}
+
 :root, .light {
   --background: white;
-  --foreground: #333333;
-  --primary: #FFF9C4;
-  --secondary: #808080;
+  --foreground: black;
 }
 
 .dark {
@@ -17,13 +40,12 @@
     ),
     linear-gradient(
       -45deg,
-      #2E0854 0%,
+      var(--main-color) 0%,
       #1A1A2E 50%,
       #000033 100%
     );
-  --foreground: #EEEEEE;
-  --primary: #2E0854;
-  --secondary: #d9d9d9cb;
+  --foreground: white;
+  --secondary: black;
 }
 
 /* Reset CSS */
@@ -31,12 +53,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background 0.5s ease, color 0.3s ease;
 }
 
 html, body {
+  max-width: 100vw;
   height: 100%;
-  overflow-x: hidden; /* Basta trocar por overflow-x para que o scroll vertical funcione */
   font-size: 100%; /* Garante que o tamanho da fonte seja consistente */
 }
 
@@ -49,7 +70,7 @@ body {
   color: var(--foreground);
   background-attachment: fixed;
   background-size: cover;
-  min-height: 100vh;
+  height: 100%;
   line-height: 1; /* Remove espaçamento extra entre linhas */
 }
 

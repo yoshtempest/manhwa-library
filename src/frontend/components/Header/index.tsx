@@ -1,6 +1,8 @@
 import styles from './styles.module.css';
 import Burger from './Burger';
 import NavBar from './NavBar';
+import { IMAGES } from '@/uploads';
+import Image from 'next/image';
 
 const Header = () => {
     return(
@@ -8,9 +10,13 @@ const Header = () => {
             <div className={styles.BurgerContainer}>
                 <Burger />
             </div>
-            <div className={styles.NavBarContainer}>
-                <NavBar />
+            <div className={styles.LogoContainer}>
+                <Image src={IMAGES.logo} alt={'Logo'} />
+                <p className={styles.Title}>Aether Library</p>
             </div>
+            {/* <div className={styles.NavBarContainer}>
+                <NavBar />
+            </div> */}
         </div>
     )
 }
