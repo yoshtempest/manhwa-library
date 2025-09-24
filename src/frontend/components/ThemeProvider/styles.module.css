@@ -1,5 +1,5 @@
 .themeToggle {
-    position: fixed; /* Usando fixed em vez de absolute para ficar relativo à viewport */
+    position: block; /* Usando fixed em vez de absolute para ficar relativo à viewport */
     top: 20px;
     right: 20px;
     z-index: 1000; /* Garante que fique acima de outros elementos */

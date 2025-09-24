@@ -1,13 +1,19 @@
 "use client";
 
-import { useState, useRef, Children } from 'react';
+import { useState, useRef} from 'react';
 import styles from './styles.module.css';
 import ICONS from '@/assets/index';
 import Icon from '@/frontend/components/Icon';
 import Link from 'next/link';
+import { ThemeProvider } from '@/frontend/components/ThemeProvider';
 
 
-const Burger = () => {
+
+export default function Burger({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
     // Estado para controlar a abertura e fechamento do menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -40,6 +46,9 @@ const Burger = () => {
 
             {isMenuOpen && (
                 <div className={styles.BurgerContent}>
+                    <div className='dark'>
+                        <ThemeProvider>{children}</ThemeProvider>
+                    </div>
                     {menuItems.map((item, index) => (
                         <Link 
                             key={index} 
@@ -54,5 +63,3 @@ const Burger = () => {
         </div>
     )
 }
-
-export default Burger;
