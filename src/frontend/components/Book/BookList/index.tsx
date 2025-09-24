@@ -43,10 +43,10 @@ function Books() {
             <p className={styles.Note}>{book.note}</p>
           </div>
           
-          <p className={styles.Favorite}
+          {/* <p className={styles.Favorite}
             onClick={() => toggleFavorite(book.id)}>
             {book.is_favorite ? '❤️ Favoritado' : '🤍 Favoritar'}
-          </p>
+          </p> */}
         </div>
       ))}
     </div>

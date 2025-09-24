@@ -1,5 +1,5 @@
 .Container {
-    width: min(90vw, 500px); /* Ocupa 90% da tela, mas no máximo 500px */
+    max-width: 31vw;
     height: clamp(6vh, 8vh, 10vh); /* Altura flexível entre 6vh e 10vh */
     display: flex;
     align-items: center;
@@ -8,16 +8,14 @@
 
 .InputContainer {
     position: relative;
-    width: 90%;
-    height: 60%;
     display: flex;
     align-items: center;
+    justify-content: space-around; /* texto à esquerda, ícone à direita */
 }
 
 .Input {
     font-size: var(--font-size-medium);
-    padding-left: 0.7em; /* Espaço para o ícone */
-    padding-right: 2em; /* Espaço para o ícone à direita (20px ícone + 15px margem) */
+    padding: 0 1.5em 0 0.5em; /* em → ligado ao tamanho da fonte */
     width: 31vw;
     height: 8vh;
     color: var(--foreground);
@@ -29,8 +27,7 @@
 
 .SearchIcon {
     position: absolute;
-    right: 1em; /* Usando 'em' para manter proporção */
-    z-index: 1;
+    right: 1em;
     width: 32px;
     height: 32px;
 }

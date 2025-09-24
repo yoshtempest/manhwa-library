@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, Children } from 'react';
 import styles from './styles.module.css';
 import ICONS from '@/assets/index';
 import Icon from '@/frontend/components/Icon';

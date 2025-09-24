@@ -1,11 +1,9 @@
 .Input {
     font-size: var(--font-size-medium);
-    padding-left: 0.7em;
-    padding-right: 0.7em;
+    padding: 0 0.7em 0 0.7em;
     width: 31vw;
     height: 8vh;
     color: var(--foreground);
-    outline: none;
     background: transparent;
     border: 2px solid var(--gray)
 }

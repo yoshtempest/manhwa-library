@@ -15,7 +15,7 @@ const NavBar = () => {
             <div className={styles.InputContainer}>
                 <input 
                     className={styles.Input}
-                    placeholder="Digite aqui"
+                    placeholder="Buscar Livros"
                 />
                 <div className={styles.SearchIcon}>
                     <Icon 

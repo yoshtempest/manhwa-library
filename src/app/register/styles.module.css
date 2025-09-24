@@ -6,12 +6,17 @@
     width: 35vw;
     height: 90vh;
     margin: 10vh 0vw 10vh 10vw;
-    border-radius: 30px;
+    border-radius: clamp(10px, 2vw, 30px);
+    gap: 8vh;
     box-shadow: 0 1px 8px 0px var(--foreground);
 }
 
+.RegisterContainer {
+    height: 80vh;
+}
+
 .Title {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: var(font-family-inter);
     font-size: var(--font-size-title);
     color: var(--foreground);
 }
@@ -19,7 +24,7 @@
 .Form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 5vh;
 }
 
 .Submit {
@@ -44,12 +49,13 @@
   text-align: center;
 }
 
-.horizontalContainer {
+.HorizontalContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1em;
+  gap: clamp(0.5rem, 1vw, 2rem);
+  padding: 0 1vw 0 1vw;
 }
 
 .Google {
@@ -63,4 +69,10 @@
   color: var(--foreground);
   background-color: var(--background);
   border: 2px solid var(--gray)
+}
+
+.LittleDistance {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
 }

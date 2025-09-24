@@ -1,0 +1,5 @@
+.DisponibilityBooks {
+    font-size: var(--font-size-subtitle);
+    border-bottom: 1px solid var(--foreground);
+    width: fit-content;
+}

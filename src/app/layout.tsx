@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Book Library",
+  title: "Aether Library",
   description: "A library for descriptions and notes of books",
 };
 
