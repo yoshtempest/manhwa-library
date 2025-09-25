@@ -15,18 +15,6 @@
     height: 80vh;
 }
 
-.Title {
-    font-family: var(font-family-inter);
-    font-size: var(--font-size-title);
-    color: var(--foreground);
-}
-
-.Form {
-  display: flex;
-  flex-direction: column;
-  gap: 5vh;
-}
-
 .Submit {
   display: flex;
   align-self: center;
@@ -43,10 +31,6 @@
 .Link {
   color: var(--link-color);
   text-align: right;
-}
-
-.Text {
-  text-align: center;
 }
 
 .HorizontalContainer {

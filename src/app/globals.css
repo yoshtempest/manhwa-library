@@ -61,6 +61,22 @@ html, body {
   font-size: 100%; /* Garante que o tamanho da fonte seja consistente */
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+h1 {
+  font-family: var(font-family-inter);
+  font-size: var(--font-size-title);
+  color: var(--foreground);
+}
+
+p {
+  text-align: center;
+}
+
 button:hover {
   cursor: pointer;
   filter: brightness(0.8);

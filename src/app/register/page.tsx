@@ -48,8 +48,8 @@ const Register = () => {
 
     return (
         <div className={`${styles.Container} ${styles.RegisterContainer}`}>
-            <h1 className={styles.Title}>Cadastro</h1>
-            <form className={styles.Form} onSubmit={handleSubmit}>
+            <h1>Cadastro</h1>
+            <form onSubmit={handleSubmit}>
 
                 <Input
                     placeholder="Email"
@@ -72,7 +72,7 @@ const Register = () => {
                 />
                 <div className={styles.LittleDistance}>
                     <button type="submit" className={styles.Submit}>Enviar</button>
-                    <p className={styles.Text}> Já possui uma conta?
+                    <p> Já possui uma conta?
                         <Link href="/login" className={styles.Link}> Ir para o login</Link>
                     </p>
                 </div>

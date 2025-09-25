@@ -41,8 +41,8 @@ const Login = () => {
     } 
     return (
         <div className={styles.Container}>
-            <h1 className={styles.Title}>Login</h1>
-            <form className={styles.Form} onSubmit={handleSubmit}>
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
                 <Input
                     placeholder="Email"
                     type="email"
@@ -72,7 +72,7 @@ const Login = () => {
                         <Image src={IMAGES.google} alt="Google Logo" width={30} height={30}/>
                         Google
                     </button>
-                    <p className={styles.Text}> Ainda não possui uma conta?
+                    <p> Ainda não possui uma conta?
                         <Link href="/register" className={styles.Link}> Cadastre-se</Link>
                     </p>
                 </div>
