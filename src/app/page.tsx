@@ -6,8 +6,8 @@ import style from './register/styles.module.css'
 export default async function Home() {
   return (
     <div>
-      <div className={style.HorizontalContainer}>
-        <h1 className={styles.DisponibilityBooks}> Livros disponíveis: 135</h1>
+      <div className={`${style.HorizontalContainer} ${styles.GapTop}`}>
+        <h2 className={styles.DisponibilityBooks}> Livros disponíveis: 135</h2>
         <NavBar />
       </div>
       <Books />

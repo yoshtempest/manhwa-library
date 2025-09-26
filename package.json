@@ -1,4 +1,7 @@
 {
+  "resolutions": {
+    "@types/react": "^18.0.0"
+  },
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node",
@@ -24,6 +27,7 @@
     "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-rating": "^2.0.5",
     "react-rating-stars-component": "^2.2.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"

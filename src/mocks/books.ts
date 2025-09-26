@@ -27,14 +27,24 @@ export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
         },
         {
             id: "3",
-            title: "O restaurante do arquimago",
+            title: "O Restaurante Do Arquimago",
             author: "Maslow",
             genres: ["Action", "Fantasy"],
             description: "Jinhyuk, um viciado completo, foi o único a ter visto o final da [Torre dos Testes], mas à medida que a popularidade do jogo diminui, fica difícil manter a vida com o jogo. Jinhyuk quer terminar o jogo assim porque ele viu o final. Naquele mesmo dia, a [Torre dos Testes] se tornou uma realidade. Jinhyuk, que conhece todos os elementos do jogo, controla tudo mais rápido do que qualquer um! “Vou te mostrar o que é um profissional de verdade.”",
             note: 4.5,
             image_path: IMAGES.restauranteDoArquimago.src,
             is_favorite: false
-        }
+        },
+        {
+            id: "4",
+            title: "Sobrevivendo Como Um Bárbaro",
+            author: "Maslow",
+            genres: ["Action", "Fantasy"],
+            description: "Jinhyuk, um viciado completo, foi o único a ter visto o final da [Torre dos Testes], mas à medida que a popularidade do jogo diminui, fica difícil manter a vida com o jogo. Jinhyuk quer terminar o jogo assim porque ele viu o final. Naquele mesmo dia, a [Torre dos Testes] se tornou uma realidade. Jinhyuk, que conhece todos os elementos do jogo, controla tudo mais rápido do que qualquer um! “Vou te mostrar o que é um profissional de verdade.”",
+            note: 4,
+            image_path: IMAGES.sobrevivendoComoUmBarbaro.src,
+            is_favorite: false
+        },
     ]
     // filtro para buscar os livros por nome
     const book = bookTitle

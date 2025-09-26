@@ -73,6 +73,12 @@ h1 {
   color: var(--foreground);
 }
 
+h2 {
+  font-family: var(font-family-inter);
+  font-size: var(--font-size-subtitle);
+  color: var(--foreground);
+}
+
 p {
   text-align: center;
 }
