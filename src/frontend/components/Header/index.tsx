@@ -14,7 +14,7 @@ const Header = () => {
                 <Image className={styles.Logo} src={IMAGES.logo} alt={'Logo'}/>
                 <p className={styles.Title}>Aether Library</p>
             </div>
-            <Link href='/needhelp' className={styles.NeedHelp}>Precisa de ajuda?</Link>
+            <Link href='/needhelp'><h4 className={styles.NeedHelp}>Precisa de ajuda?</h4></Link>
         </header>
     )
 }

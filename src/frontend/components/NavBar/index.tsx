@@ -21,6 +21,8 @@ const NavBar = () => {
                     <Icon 
                         iconPath={theme === "dark" ? ICONS.searchIconWhite.src : ICONS.searchIcon.src}
                         alt="Search icon"
+                        width={32}
+                        height={32}
                     />
                 </div>
             </div>

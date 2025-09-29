@@ -28,8 +28,7 @@
 .SearchIcon {
     position: absolute;
     right: 1em;
-    width: 32px;
-    height: 32px;
+    top: 0.75em;
 }
 
 .Input::placeholder {

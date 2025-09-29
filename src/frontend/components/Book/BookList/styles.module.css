@@ -7,10 +7,20 @@
     gap: 3em;
 }
 
+.BookCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Title {
     font-size: var(--font-size-intermediate);
-    text-align: center;
     padding-top: 1vh;
+    width: 12vw;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .NotesContainer {

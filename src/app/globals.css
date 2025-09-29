@@ -79,6 +79,18 @@ h2 {
   color: var(--foreground);
 }
 
+h3 {
+  font-family: var(font-family-inter);
+  font-size: var(--font-size-medium);
+  color: var(--foreground);
+}
+
+h4 {
+  font-family: var(font-family-inter);
+  font-size: var(--font-size-intermediate);
+  color: var(--background);
+}
+
 p {
   text-align: center;
 }

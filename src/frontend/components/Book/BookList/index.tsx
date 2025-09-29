@@ -30,7 +30,7 @@ function Books() {
   return (
     <div className={styles.Container}>
       {books.map((book) => (
-        <div key={book.id}>
+        <div key={book.id} className={styles.BookCard}>
           <BookImage
             imagePath={book.image_path ?? ''} // fallback to empty string if undefined
             alt={`Capa do livro ${book.title}`}

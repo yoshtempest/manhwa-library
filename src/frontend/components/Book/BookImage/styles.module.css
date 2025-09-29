@@ -2,8 +2,8 @@
     display: flex;
     overflow: hidden;
     border-radius: clamp(0.5vw, 10px, 30px);
-    max-width: 12vw;
-    max-height: 34vh;
+    width: 12vw;
+    height: 34vh;
     box-shadow: 0 0px 16px 5px var(--main-color);
 }
 

@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: auto 0.95fr auto;
     align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 14vh;
     box-shadow: 0 1px 8px 0px var(--foreground);
