@@ -1,3 +1,10 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
 .DisponibilityBooks {
     border-bottom: 1px solid var(--foreground);
     width: fit-content;
@@ -5,4 +12,21 @@
 
 .GapTop {
     margin-top: 5vh;
+}
+
+.PaddingLeft {
+    padding-left: 7vw;
+}
+
+.SideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    right: 0;
+    top: 14vh;
+    width: 20vw;
+    height: 80vh;
+    box-shadow: 1px 0px 8px 0px var(--foreground);
 }
