@@ -8,6 +8,14 @@ import Link from 'next/link';
 import { ThemeProvider } from '@/frontend/components/ThemeProvider';
 
 
+const menuItems = [
+  { href: "/", label: "Home", icon: ICONS.home.src },
+  { href: "/favorites", label: "Favoritos", icon: ICONS.favorites.src },
+  { href: "/genres", label: "Gêneros", icon: ICONS.genres.src },
+  { href: "/trending", label: "Em Alta", icon: ICONS.trending.src },
+  { href: "/login", label: "Login", icon: ICONS.login.src },
+  { href: "/register", label: "Cadastro", icon: ICONS.register.src },
+];
 
 export default function Burger({
   children,
@@ -24,79 +32,31 @@ export default function Burger({
 
     return (
         <div className={styles.Container} ref={menuRef}>
-            <div 
-                className={styles.BurgerIcon} 
-                onClick={toggleMenu}
-            >
+            <div className={styles.BurgerIcon} onClick={toggleMenu}>
                 <Icon 
                     iconPath={isMenuOpen ? ICONS.burgerClose.src : ICONS.burgerOpen.src}
-                    alt={isMenuOpen ? "Close menu" : "Open menu"}
+                    alt={isMenuOpen ? "Fechar menu" : "Abrir menu"}
                     width={30}
                     height={30}
                 />
             </div>
 
             {isMenuOpen && (
-                <div className={styles.BurgerContent}>
-                    <div className='dark'>
-                        <ThemeProvider>{children}</ThemeProvider>
-                        <div className={styles.BurgerItems}>
-                            <Link href='/'>
-                                <Icon iconPath={ICONS.home.src}
-                                    alt={"Home icon"}
-                                    width={24}
-                                    height={24}> 
-                                </Icon>
-                                <h4>home</h4>
+                <nav className={styles.Content}>
+                    <ThemeProvider>{children}</ThemeProvider>
+                    <ul>
+                        {menuItems.map(({ href, label, icon }) => (
+                        <li key={href} className={styles.MenuItems}>
+                            <Link href={href}>
+                            <div className={styles.HorizontalContainer}>
+                                <Icon iconPath={icon} alt={`${label} icon`} width={28} height={28} />
+                                <p className={styles.Label}>{label}</p>
+                            </div>
                             </Link>
-
-                            <Link href='/favorites'>
-                                <Icon iconPath={ICONS.favorites.src}
-                                    alt={"Home icon"}
-                                    width={24}
-                                    height={24}>    
-                                </Icon>
-                                <h4>Favoritos</h4>
-                            </Link>
-
-                            <Link href='/genres'>
-                                <Icon iconPath={ICONS.genres.src}
-                                    alt={"Home icon"}
-                                    width={24}
-                                    height={24}>    
-                                </Icon>
-                                <h4>Gêneros</h4>
-                            </Link>
-
-                            <Link href='/trending'>
-                                <Icon iconPath={ICONS.trending.src}
-                                    alt={"Home icon"}
-                                    width={24}
-                                    height={24}>    
-                                </Icon>
-                                <h4>Em Alta</h4>
-                            </Link>
-
-                            <Link href="/login">
-                                <Icon iconPath={ICONS.login.src}
-                                    alt={"Home icon"}
-                                    width={24}
-                                    height={24}>    
-                                </Icon>
-                                <h4>Login</h4>
-                            </Link>
-
-                            <Link href="/register">
-                                <Icon iconPath={ICONS.register.src}
-                                    alt={"Home icon"}
-                                    width={24}
-                                    height={24}>    
-                                </Icon>
-                                <h4>Cadastro</h4>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+                        </li>
+                        ))}
+                    </ul>
+                </nav>
             )}
         </div>
     )

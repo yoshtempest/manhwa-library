@@ -1,32 +1,43 @@
 .Container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+}
+
+.Content {
+  margin-top: 4vh;
+  padding-left: 7vw;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh; /* elimina necessidade de GapTop */
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 }
 
 .DisponibilityBooks {
-    border-bottom: 1px solid var(--foreground);
-    width: fit-content;
+  border-bottom: 1px solid var(--foreground);
+  width: fit-content;
 }
 
-.GapTop {
-    margin-top: 5vh;
+.Sidebar {
+  position: fixed;
+  right: 0;
+  top: 14vh;
+  width: 20vw;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 1vw;
+  box-shadow: 1px 0px 8px 0px var(--foreground);
 }
 
-.PaddingLeft {
-    padding-left: 7vw;
-}
-
-.SideBar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    position: fixed;
-    right: 0;
-    top: 14vh;
-    width: 20vw;
-    height: 80vh;
-    box-shadow: 1px 0px 8px 0px var(--foreground);
+.SidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

@@ -10,9 +10,30 @@
     position: inline-block;
 }
 
-.BurgerContent {
+.Content {
     display: flex;
     flex-direction: column;
-    top: 100%;
+    margin-top: 95vh;
+    align-items: flex-start;
+    justify-content: center;
     position: absolute;
+    height: 80vh;
+    width: 8.8vw;
+    box-shadow: 0px 0px 8px 1px var(--foreground);
+}
+
+.HorizontalContainer {
+    padding-left: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Label {
+    padding-left: 4px;
+    font-size: var(--font-size-small);
+}
+
+.MenuItems:hover {
+    background-color: var(--gray);
 }

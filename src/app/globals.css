@@ -86,9 +86,9 @@ h3 {
 }
 
 h4 {
-  font-family: var(font-family-inter);
+  font-family: var(--font-family-inria-serif);
   font-size: var(--font-size-intermediate);
-  color: var(--background);
+  color: var(--foreground);
 }
 
 p {

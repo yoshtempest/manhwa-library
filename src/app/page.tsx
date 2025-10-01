@@ -1,30 +1,28 @@
-import Books from '@/frontend/components/Book/BookList'
+import Books from '@/frontend/components/Book/BookList';
 import NavBar from '@/frontend/components/NavBar';
-import styles from './styles.module.css'
-import style from './register/styles.module.css'
+import styles from './styles.module.css';
 import Icon from '@/frontend/components/Icon';
 import ICONS from '@/assets';
 
-export default async function Home() {
+export default function Home() {
   return (
-    <div className={styles.Container}>
-      <div className={styles.PaddingLeft}>
-        <div className={`${style.HorizontalContainer} ${styles.GapTop}`}>
-          <h2 className={styles.DisponibilityBooks}> Livros disponíveis: 135</h2>
+    <main className={styles.Container}>
+      <section className={styles.Content}>
+        <header className={styles.Header}>
+          <h2 className={styles.DisponibilityBooks}>Livros disponíveis: 135</h2>
           <NavBar />
-        </div>
+        </header>
 
-        <div className={styles.GapTop}>
-          <Books />
-        </div>
-      </div>
+        <Books />
+      </section>
 
-      <div className={styles.SideBar}>
-        <div className={`${style.HorizontalContainer} ${styles.GapTop}`}>
-          <Icon iconPath={ICONS.star.src} alt='star' width={30} height={30}></Icon>
+      <aside className={styles.Sidebar}>
+        <header className={styles.SidebarHeader}>
+          <Icon iconPath={ICONS.star.src} alt="star" width={30} height={30} />
           <h3>Em Alta</h3>
-        </div>
-      </div>
-    </div>
+        </header>
+      </aside>
+    </main>
   );
 }
+
