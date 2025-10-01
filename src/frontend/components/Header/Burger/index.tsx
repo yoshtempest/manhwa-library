@@ -48,10 +48,14 @@ export default function Burger({
                         {menuItems.map(({ href, label, icon }) => (
                         <li key={href} className={styles.MenuItems}>
                             <Link href={href}>
-                            <div className={styles.HorizontalContainer}>
-                                <Icon iconPath={icon} alt={`${label} icon`} width={28} height={28} />
-                                <p className={styles.Label}>{label}</p>
-                            </div>
+                                <div className={styles.HorizontalContainer}>
+                                    <Icon
+                                    iconPath={icon}
+                                    alt={`${label} icon`}
+                                    width={28}
+                                    height={28} />
+                                    <p className={styles.Label}>{label}</p>
+                                </div>
                             </Link>
                         </li>
                         ))}

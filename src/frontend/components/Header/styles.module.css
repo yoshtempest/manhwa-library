@@ -2,7 +2,7 @@
 
 .Container {
     display: grid;
-    grid-template-columns: auto 0.95fr auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -12,7 +12,8 @@
 
 .BurgerContainer {
     grid-column: 1;
-    padding-left: 20px;
+    display: flex;
+    align-items: flex-start;
 }
 
 .LogoContainer {
@@ -20,6 +21,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    width: fit-content;
     align-items: center;
 }
 
@@ -38,4 +40,5 @@
 
 .NeedHelp {
     color: #6D3AA1;
+    margin-right: 2vw;
 }

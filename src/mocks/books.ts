@@ -1,7 +1,6 @@
 import { BookResponse } from '@/schemas/book';
 import { IMAGES } from '@/uploads';
 
-
 export async function getBooks(bookTitle?: string):  Promise<BookResponse[]> {
     
     const allBooks = [

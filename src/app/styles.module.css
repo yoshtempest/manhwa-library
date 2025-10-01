@@ -23,17 +23,18 @@
 }
 
 .Sidebar {
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 14vh;
   width: 20vw;
-  height: 80vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2vh 1vw;
-  box-shadow: 1px 0px 8px 0px var(--foreground);
+  border-left: 2px solid var(--foreground);
+  background-color: var(--background)
 }
 
 .SidebarHeader {
