@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import ICONS from '@/assets/index';
 import Icon from '@/frontend/components/Icon';
 import Link from 'next/link';
-import { ThemeProvider } from '@/frontend/components/ThemeProvider';
+import ThemeToggle from '@/frontend/components/ThemeToggle';
 
 
 const menuItems = [
@@ -17,11 +17,7 @@ const menuItems = [
   { href: "/register", label: "Cadastro", icon: ICONS.register.src },
 ];
 
-export default function Burger({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Burger () {
     // Estado para controlar a abertura e fechamento do menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -43,7 +39,7 @@ export default function Burger({
 
             {isMenuOpen && (
                 <nav className={styles.Content}>
-                    <ThemeProvider>{children}</ThemeProvider>
+                    <ThemeToggle />
                     <ul>
                         {menuItems.map(({ href, label, icon }) => (
                         <li key={href} className={styles.MenuItems}>

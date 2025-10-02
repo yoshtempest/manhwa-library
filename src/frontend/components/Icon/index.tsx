@@ -8,6 +8,7 @@ interface Props{
     alt: string;
     width: number;
     height: number;
+    ignoreTheme?: boolean;
 }
 
 const Icon = ({
@@ -15,8 +16,10 @@ const Icon = ({
     alt,
     width,
     height,
+    ignoreTheme = false
 } : Props ) => {
-    if (useTheme().theme === 'dark') {
+    const { theme } = useTheme();
+    if (ignoreTheme)  {
         return (
             <img className={styles.IconWhite}
             src={iconPath}
