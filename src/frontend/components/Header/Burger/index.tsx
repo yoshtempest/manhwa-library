@@ -46,10 +46,11 @@ export default function Burger () {
                             <Link href={href}>
                                 <div className={styles.HorizontalContainer}>
                                     <Icon
-                                    iconPath={icon}
-                                    alt={`${label} icon`}
-                                    width={28}
-                                    height={28} />
+                                        iconPath={icon}
+                                        alt={`${label} icon`}
+                                        width={28}
+                                        height={28}
+                                    />
                                     <p className={styles.Label}>{label}</p>
                                 </div>
                             </Link>

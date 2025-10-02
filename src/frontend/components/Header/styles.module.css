@@ -28,6 +28,7 @@
 .Title {
     font-family: Irish Grover, serif;
     font-size: var(--font-size-medium);
+    height: 1.2em;
     background: linear-gradient(
       to right,
       var(--main-color) 0%,
@@ -35,7 +36,7 @@
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-left: 10px;
+    margin: 10px 0px 0px 10px;
 }
 
 .NeedHelp {
