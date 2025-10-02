@@ -18,7 +18,7 @@ export default function Home() {
 
       <aside className={styles.Sidebar}>
         <header className={styles.SidebarHeader}>
-          <Icon iconPath={ICONS.star.src} alt="star" width={30} height={30} />
+          <Icon iconPath={ICONS.star.src} alt="star" width={30} height={30} ignoreTheme/>
           <h3>Em Alta</h3>
         </header>
       </aside>

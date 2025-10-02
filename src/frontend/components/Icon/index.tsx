@@ -19,24 +19,33 @@ const Icon = ({
     ignoreTheme = false
 } : Props ) => {
     const { theme } = useTheme();
-    if (ignoreTheme)  {
+    
+    // Se ignoreTheme for true, SEMPRE usa a classe normal (Icon)
+    if (ignoreTheme) {
         return (
-            <img className={styles.IconWhite}
+            <img 
+                className={styles.Icon}
+                src={iconPath}
+                alt={alt}
+                width={width}
+                height={height}
+            />
+        );
+    }
+    
+    // Se ignoreTheme for false, aplica a lógica do tema
+    // Tema escuro: IconWhite | Tema claro: Icon
+    const className = theme === 'dark' ? styles.IconWhite : styles.Icon;
+    
+    return (
+        <img 
+            className={className}
             src={iconPath}
             alt={alt}
             width={width}
             height={height}
         />
-        )
-    }
-    return (
-        <img className={styles.Icon}
-        src={iconPath}
-        alt={alt}
-        width={width}
-        height={height}
-        />
-    )
+    );
 }
 
 export default Icon;
