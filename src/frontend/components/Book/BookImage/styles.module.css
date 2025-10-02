@@ -2,8 +2,8 @@
     display: flex;
     overflow: hidden;
     border-radius: clamp(0.5vw, 10px, 30px);
-    width: 12vw;
-    height: 34vh;
+    width: 13vw;
+    height: 37vh;
     box-shadow: 0 0px 16px 5px var(--main-color);
 }
 
@@ -14,7 +14,6 @@
     height: 100%;
     width: 100%;
     transition: transform 0.4s;
-
 }
 
 .image:hover {

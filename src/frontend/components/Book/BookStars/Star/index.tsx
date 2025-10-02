@@ -1,5 +1,3 @@
-"use client";
-
 import ICONS from "@/assets";
 import Icon from "@/frontend/components/Icon";
 

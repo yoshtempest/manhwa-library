@@ -1,4 +1,7 @@
+"use client";
+
 import styles from './styles.module.css';
+import { useTheme } from "@/frontend/components/ThemeProvider";
 
 interface Props{
     iconPath: string;
@@ -13,6 +16,16 @@ const Icon = ({
     width,
     height,
 } : Props ) => {
+    if (useTheme().theme === 'dark') {
+        return (
+            <img className={styles.IconWhite}
+            src={iconPath}
+            alt={alt}
+            width={width}
+            height={height}
+        />
+        )
+    }
     return (
         <img className={styles.Icon}
         src={iconPath}

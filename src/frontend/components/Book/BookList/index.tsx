@@ -35,7 +35,7 @@ function Books() {
             imagePath={book.image_path ?? ''} // fallback to empty string if undefined
             alt={`Capa do livro ${book.title}`}
           />
-          <h2 className={styles.Title}>{book.title}</h2>
+          <h4 className={styles.Title}>{book.title}</h4>
           <div className={styles.NotesContainer}>
             <BookStars rating={book.note}/>
             <p className={styles.Note}>{book.note}</p>

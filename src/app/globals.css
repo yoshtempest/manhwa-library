@@ -1,11 +1,12 @@
-@import "tailwindcss";
+@import "tailwindcss"; /* por mais que não tenha relação nenhuma com o restante, se eu apagar TUDO quebra */
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif&family=Inter&display=swap');
 
 /* ===== VARIÁVEIS DE TEMA ===== */
 :root {
 
   /* Fontes */
-  --font-family-inria-serif: var(--font-inria-serif);
-  --font-family-inter: var(--font-inter);
+  --font-family-inria-serif: 'Inria Serif', serif;
+  --font-family-inter: 'Inter', sans-serif;
 
   /*Tamanho das Fontes*/
   --font-size-title: 64px;
@@ -33,7 +34,8 @@
 }
 
 .dark {
-  --background: linear-gradient(
+  --background: 
+    linear-gradient(
       45deg,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(46, 8, 84, 0.2) 75%,
@@ -80,7 +82,7 @@ h2 {
 }
 
 h3 {
-  font-family: var(font-family-inter);
+  font-family: var(--font-family-inter);
   font-size: var(--font-size-medium);
   color: var(--foreground);
 }
@@ -92,6 +94,7 @@ h4 {
 }
 
 p {
+  font-family: var(--font-family-inria-serif);
   text-align: center;
 }
 

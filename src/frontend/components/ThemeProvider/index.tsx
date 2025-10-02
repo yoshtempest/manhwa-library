@@ -50,7 +50,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         >
           <Icon 
             iconPath={theme === "dark" ? ICONS.darkTheme.src : ICONS.lightTheme.src} 
-            alt={`Theme Icon ${theme === "dark" ? "light" : "dark"}`} 
+            alt={`Theme Icon ${theme === "dark" ? "light" : "dark"}`}
+            width={28}
+            height={28} 
           />
         </button>
       </div>

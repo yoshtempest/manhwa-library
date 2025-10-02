@@ -1,4 +1,7 @@
 .Icon {
     cursor: pointer;
-    /* filter: invert(100%);  quando for dark inverte as cores, assim não preciso duplicar icones, só preciso fazer uma exceção para as "stars" */
+} 
+.IconWhite {
+    cursor: pointer;
+    filter: invert(100%);
 }

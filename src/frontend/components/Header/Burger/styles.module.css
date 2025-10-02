@@ -21,7 +21,7 @@
     height: 100vh;
     width: 10vw;
     left: 0;
-    border-right: 2px solid var(--foreground);
+    box-shadow: 1px 0px 8px 0px var(--foreground);
     background-color: var(--background)
 }
 

@@ -15,7 +15,6 @@
 }
 
 .Title {
-    font-size: var(--font-size-intermediate);
     padding-top: 1vh;
     width: 12vw;
     display: -webkit-box;
@@ -23,6 +22,8 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    line-height: 1.2em;   /* altura da linha */
+    height: 2.6em;        /* garante espaço para 2 linhas */
 }
 
 .NotesContainer {
