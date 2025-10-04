@@ -16,9 +16,9 @@
     display: flex;
     flex-direction: column;
     top: 100%;
-    align-items: center;
+    justify-content: center;
     position: absolute;
-    height: 100vh;
+    height: 50vh;
     width: 10vw;
     left: 0;
     box-shadow: 1px 0px 8px 0px var(--foreground);
@@ -26,15 +26,21 @@
 }
 
 .HorizontalContainer {
-    margin-top: 20px;
     display: flex;
+    width: 100%;
     flex-direction: row;
+    margin: 20px;
     align-items: center;
 }
 
 .Label {
     font-size: var(--font-size-small);
     padding-left: 4px;
+}
+
+.MenuItems {
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 .MenuItems:hover {

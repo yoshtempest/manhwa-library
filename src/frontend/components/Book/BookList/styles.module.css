@@ -1,8 +1,10 @@
 .Container {
     padding: 20px;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     align-items: center;
     gap: 5em;
 }
