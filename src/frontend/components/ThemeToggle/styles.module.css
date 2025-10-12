@@ -1,13 +1,25 @@
 .themeToggle {
-    position: block; /* Usando fixed em vez de absolute para ficar relativo à viewport */
-    top: 20px;
-    right: 20px;
+    display: flex;
+    align-self: center;
+    background-color: var(--gray);
+    border-radius: 20px;
+    margin-top: 25px;
+    width: fit-content;
+    border: 2px solid var(--foreground);
+    gap: 20px;
+    justify-content: space-around;
 }
 
 /* Opcional: estilize o botão */
 .themeToggle button {
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5px;
+}
+
+.activeTheme {
+    background-color: white;
 }
